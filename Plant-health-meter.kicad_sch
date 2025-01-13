@@ -1,0 +1,338 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "357055bf-c309-4d6b-a2fa-f5ee5ba59771")
+	(paper "A4")
+	(lib_symbols)
+	(wire
+		(pts
+			(xy 129.54 74.93) (xy 129.54 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06c66bbe-4678-404f-8100-8e49d09ab378")
+	)
+	(bus
+		(pts
+			(xy 118.11 78.74) (xy 118.11 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2c658211-339c-41c3-82e4-89cd50a87590")
+	)
+	(wire
+		(pts
+			(xy 129.54 81.28) (xy 121.92 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3a128a6a-6842-4b9e-8eeb-26d0b281aa1c")
+	)
+	(wire
+		(pts
+			(xy 157.48 96.52) (xy 165.1 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "54195393-64e4-49db-bd65-c12e5ad12ecf")
+	)
+	(bus
+		(pts
+			(xy 125.73 74.93) (xy 125.73 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a99d9d1-35b4-4f30-8be5-4ba6eec12f24")
+	)
+	(wire
+		(pts
+			(xy 157.48 100.33) (xy 165.1 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5aaf9e24-d15e-49e0-968b-470f5483a0b4")
+	)
+	(bus
+		(pts
+			(xy 125.73 78.74) (xy 118.11 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b56c7aa-b49e-4fc2-8d48-a9cd3b2212fa")
+	)
+	(wire
+		(pts
+			(xy 121.92 81.28) (xy 121.92 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e7179f76-078a-4ea7-ada9-085ce98a282c")
+	)
+	(wire
+		(pts
+			(xy 157.48 104.14) (xy 165.1 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e876ff7c-e998-4b24-bdbe-52e71ba9d9fb")
+	)
+	(text "Block Diagram"
+		(exclude_from_sim no)
+		(at 195.58 174.498 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+				(thickness 0.508)
+				(bold yes)
+			)
+		)
+		(uuid "42ca1860-d235-4169-9410-ce2a60d6a4b7")
+	)
+	(sheet
+		(at 123.19 59.69)
+		(size 25.4 15.24)
+		(stroke
+			(width 0.1524)
+			(type solid)
+			(color 0 0 0 1)
+		)
+		(fill
+			(color 200 200 200 1.0000)
+		)
+		(uuid "673b6cbc-4dd8-4397-ae5a-9b0518551eea")
+		(property "Sheetname" "Sensors"
+			(at 131.826 62.738 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.254)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sensors.kicad_sch"
+			(at 123.19 78.0546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "Sensor bus" bidirectional
+			(at 125.73 74.93 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "bbb54b3a-e4e2-49b1-bf1c-92c74b3c7cfa")
+		)
+		(pin "CAP_TIMER" output
+			(at 129.54 74.93 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "bb1a7407-df7d-48ac-9c83-1c99d4948e36")
+		)
+		(instances
+			(project "Plant-health-meter"
+				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 165.1 85.09)
+		(size 16.51 44.45)
+		(stroke
+			(width 0.1524)
+			(type solid)
+			(color 0 0 0 1)
+		)
+		(fill
+			(color 200 200 200 1.0000)
+		)
+		(uuid "98819006-dc75-4aad-a220-e6960b29e68b")
+		(property "Sheetname" "PWR"
+			(at 171.196 87.884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.254)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "pwr.kicad_sch"
+			(at 165.1 158.0646 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "Battery_stat" output
+			(at 165.1 96.52 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "3634b4a1-63f3-415a-a359-ba29971a97e9")
+		)
+		(pin "USB_D+" bidirectional
+			(at 165.1 100.33 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "afe722e5-5fc8-49c1-a168-630458703acc")
+		)
+		(pin "USB_D-" bidirectional
+			(at 165.1 104.14 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "70d5b646-2b59-444a-8978-229457767e9b")
+		)
+		(instances
+			(project "Plant-health-meter"
+				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 111.76 85.09)
+		(size 45.72 44.45)
+		(stroke
+			(width 0.1524)
+			(type solid)
+			(color 0 0 0 1)
+		)
+		(fill
+			(color 200 200 200 1.0000)
+		)
+		(uuid "f878f43f-0ef0-4ca5-9286-ff16b4b716af")
+		(property "Sheetname" "MCU"
+			(at 132.588 88.138 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.254)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu.kicad_sch"
+			(at 111.76 130.1246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "Sensor bus" bidirectional
+			(at 118.11 85.09 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "11bbb785-4a11-4144-9826-d8e25f31131c")
+		)
+		(pin "Battery_stat" input
+			(at 157.48 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "71936e84-7d7a-400b-92ad-27dbc0956a7b")
+		)
+		(pin "CAP_TIMER" input
+			(at 121.92 85.09 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "673eaff0-1205-4050-aa01-bb89c88293d6")
+		)
+		(pin "USB_D-" bidirectional
+			(at 157.48 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "884662ff-a17d-4044-8af6-fe695af3933d")
+		)
+		(pin "USB_D+" bidirectional
+			(at 157.48 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "73d5494d-6735-4fe9-a652-3c7ac6eb657e")
+		)
+		(instances
+			(project "Plant-health-meter"
+				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)

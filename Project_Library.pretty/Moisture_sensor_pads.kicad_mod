@@ -1,0 +1,228 @@
+(footprint "Moisture_sensor_pads"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "8b86c76d-48fb-4415-b336-64c02550197e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "Moisture_sensor_pads"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "79682fec-e9ba-4e38-ac95-23c68b74aa89")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c0977299-1be1-4283-9495-f1bfe817de52")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "1477d7cf-4ede-4fb8-938b-37bc7127d085")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "712f0563-ee48-4fba-b6da-75f0fcff4dd5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_poly
+		(pts
+			(xy 17.5 0) (xy 17.5 55) (xy 12.5 59.5) (xy 7.5 55) (xy 7.5 0)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill solid)
+		(layer "F.Cu")
+		(uuid "e6389e21-ee25-4ba3-89e4-dbb6c230c8a1")
+	)
+	(fp_poly
+		(pts
+			(xy 6.5 0) (xy 6.5 55) (xy 12.5 61) (xy 18.5 55) (xy 18.5 0) (xy 24.5 0) (xy 24.5 55) (xy 12.5 67.5)
+			(xy 0.5 55) (xy 0.5 0)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill solid)
+		(layer "F.Cu")
+		(uuid "bfd0836d-b079-48fd-8826-100594bd04f1")
+	)
+	(fp_poly
+		(pts
+			(xy 17.5 0) (xy 17.5 55) (xy 12.5 59.5) (xy 7.5 55) (xy 7.5 0)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill solid)
+		(layer "B.Cu")
+		(uuid "89c577fe-fa34-4d9f-bdc7-e139730813b4")
+	)
+	(fp_poly
+		(pts
+			(xy 6.5 0) (xy 6.5 55) (xy 12.5 61) (xy 18.5 55) (xy 18.5 0) (xy 24.5 0) (xy 24.5 55) (xy 12.5 67.5)
+			(xy 0.5 55) (xy 0.5 0)
+		)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill solid)
+		(layer "B.Cu")
+		(uuid "8368412f-4565-4da6-9a9b-4facbc431f23")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "73b353b1-7a73-45a7-bbf4-2102ee3f5c2b")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(dimension
+		(type aligned)
+		(layer "Cmts.User")
+		(uuid "77e954ee-1945-42dc-8789-c601c0cdee9c")
+		(pts
+			(xy 30 0) (xy 30 60)
+		)
+		(height 0)
+		(gr_text "60.0000 mm"
+			(at 28.85 30 90)
+			(layer "Cmts.User")
+			(uuid "77e954ee-1945-42dc-8789-c601c0cdee9c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 1)
+			(precision 4)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(extension_height 0.58642)
+			(extension_offset 0.5) keep_text_aligned)
+	)
+	(dimension
+		(type aligned)
+		(layer "Cmts.User")
+		(uuid "bcecdedc-fc81-4678-a2c1-d286636d5a8a")
+		(pts
+			(xy 0 -5) (xy 25 -5)
+		)
+		(height 0)
+		(gr_text "25.0000 mm"
+			(at 12.5 -6.15 0)
+			(layer "Cmts.User")
+			(uuid "bcecdedc-fc81-4678-a2c1-d286636d5a8a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 1)
+			(precision 4)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(extension_height 0.58642)
+			(extension_offset 0.5) keep_text_aligned)
+	)
+	(pad "1" thru_hole roundrect
+		(at 12.5 1 90)
+		(size 2.286 1.524)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(roundrect_rratio 0.25)
+		(thermal_bridge_angle 45)
+		(uuid "f34cb299-2909-4d98-94c7-93f96c10668e")
+	)
+	(pad "2" thru_hole roundrect
+		(at 3.5 1 90)
+		(size 2.286 1.524)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(roundrect_rratio 0.25)
+		(thermal_bridge_angle 45)
+		(uuid "d71818e2-39f9-48d2-805e-761cf44161f8")
+	)
+	(pad "2" thru_hole roundrect
+		(at 21.5 1 90)
+		(size 2.286 1.524)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(roundrect_rratio 0.25)
+		(thermal_bridge_angle 45)
+		(uuid "4c33759e-745c-43bc-8a4e-0690a11ef076")
+	)
+)
