@@ -742,7 +742,7 @@
 				)
 			)
 		)
-		(symbol "Timer:NE555D"
+		(symbol "Timer:TLC555xPS"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -755,7 +755,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "NE555D"
+			(property "Value" "TLC555xPS"
 				(at 2.54 8.89 0)
 				(effects
 					(font
@@ -764,7 +764,16 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(property "Footprint" "Package_SO:VSSOP-8_3x3mm_P0.65mm"
+				(at 16.51 -10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tlc555.pdf"
 				(at 21.59 -10.16 0)
 				(effects
 					(font
@@ -773,16 +782,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/ne555.pdf"
-				(at 21.59 -10.16 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Precision Timers, 555 compatible, SOIC-8"
+			(property "Description" "Single LinCMOS Timer, 555 compatible, VSSOP-8"
 				(at 0 0 0)
 				(effects
 					(font
@@ -800,7 +800,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "SOIC*3.9x4.9mm*P1.27mm*"
+			(property "ki_fp_filters" "*VSSOP*3x3mm*P0.65mm*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -809,7 +809,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "NE555D_0_0"
+			(symbol "TLC555xPS_0_0"
 				(pin power_in line
 					(at 0 -10.16 90)
 					(length 2.54)
@@ -847,7 +847,7 @@
 					)
 				)
 			)
-			(symbol "NE555D_0_1"
+			(symbol "TLC555xPS_0_1"
 				(rectangle
 					(start -8.89 -7.62)
 					(end 8.89 7.62)
@@ -871,7 +871,7 @@
 					)
 				)
 			)
-			(symbol "NE555D_1_1"
+			(symbol "TLC555xPS_1_1"
 				(pin input line
 					(at -12.7 5.08 0)
 					(length 3.81)
@@ -1254,16 +1254,16 @@
 		(uuid "8402f955-24b3-4d7c-93ec-cce0495e75d0")
 	)
 	(junction
+		(at 201.93 106.68)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "84b03254-8330-4b8d-bcd0-a970a3e1aac6")
+	)
+	(junction
 		(at 62.23 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "953cd1f6-988b-4577-84b3-2da426dfb582")
-	)
-	(junction
-		(at 201.93 106.68)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "95f98fa4-9ac1-4f2d-bfa5-c4949791894f")
 	)
 	(junction
 		(at 223.52 101.6)
@@ -2137,6 +2137,17 @@
 		)
 		(uuid "c179f6d1-2a24-43d6-ab50-5f0c15331e25")
 	)
+	(label "sensor_cap"
+		(at 205.74 64.77 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c50bb7b2-a7b6-4703-9997-ce07ca8350a2")
+	)
 	(hierarchical_label "CAP_TIMER"
 		(shape output)
 		(at 157.48 64.77 180)
@@ -2226,6 +2237,94 @@
 			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
 					(reference "R16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Timer:TLC555xPS")
+		(at 189.23 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0c590773-4f0b-433d-bf34-08273659b48c")
+		(property "Reference" "U7"
+			(at 191.4241 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TLC555xPS"
+			(at 191.4241 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:VSSOP-8_3x3mm_P0.65mm"
+			(at 205.74 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tlc555.pdf"
+			(at 210.82 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Single LinCMOS Timer, 555 compatible, VSSOP-8"
+			(at 189.23 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "2b9e60d7-d7d2-4426-b237-8f8f321a4314")
+		)
+		(pin "7"
+			(uuid "69fa0984-56eb-413f-9e7c-06ba4cbd42ca")
+		)
+		(pin "5"
+			(uuid "2c40012c-afda-4c60-8527-fce2f5a4a099")
+		)
+		(pin "8"
+			(uuid "6d2441e7-8f88-401e-9a0e-56aad23b1e6f")
+		)
+		(pin "6"
+			(uuid "1f5e2a3a-9987-4e3a-96a3-0977a037f784")
+		)
+		(pin "3"
+			(uuid "8bcd11e3-61a5-4de0-b878-43a4fd308ed2")
+		)
+		(pin "2"
+			(uuid "0080ff72-601b-4781-bdce-2becdeaca988")
+		)
+		(pin "1"
+			(uuid "353286d2-3ce6-494b-9ac5-9b93be6c461b")
+		)
+		(instances
+			(project ""
+				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
+					(reference "U7")
 					(unit 1)
 				)
 			)
@@ -3740,94 +3839,6 @@
 			(project ""
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
 					(reference "S1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Timer:NE555D")
-		(at 189.23 101.6 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f9e6934e-0782-46cd-a667-f63bad9d5d54")
-		(property "Reference" "U6"
-			(at 191.4241 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "NE555D"
-			(at 191.4241 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
-			(at 210.82 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/ne555.pdf"
-			(at 210.82 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Precision Timers, 555 compatible, SOIC-8"
-			(at 189.23 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "8"
-			(uuid "9fecea8c-1c6d-4a66-a838-08c9100c2862")
-		)
-		(pin "1"
-			(uuid "3d703d9a-0093-4bcb-bf1b-825520a2c40e")
-		)
-		(pin "7"
-			(uuid "f41db9b4-2c9e-4ae6-b1b5-c00a141e7784")
-		)
-		(pin "2"
-			(uuid "8cf60b75-c1f6-48e3-918c-712ecfc421d9")
-		)
-		(pin "3"
-			(uuid "27fbd46a-640a-4b50-af39-519f0c5a5ade")
-		)
-		(pin "6"
-			(uuid "e187b5db-5d53-4ac9-95e1-876187187f68")
-		)
-		(pin "5"
-			(uuid "5dc65000-4d55-4754-8dc9-393c9df8e3ff")
-		)
-		(pin "4"
-			(uuid "d44487f3-519c-4d4d-a988-5dded7f6c84f")
-		)
-		(instances
-			(project ""
-				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
-					(reference "U6")
 					(unit 1)
 				)
 			)

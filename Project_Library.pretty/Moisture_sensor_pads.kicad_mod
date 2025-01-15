@@ -117,6 +117,19 @@
 		(layer "B.Cu")
 		(uuid "8368412f-4565-4da6-9a9b-4facbc431f23")
 	)
+	(fp_text user "${1}"
+		(at 10.8 3.8 0)
+		(unlocked yes)
+		(layer "F.CrtYd")
+		(uuid "bdb97c3f-455f-4461-b3ad-6f5d6db67647")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
 	(fp_text user "${REFERENCE}"
 		(at 0 2.5 0)
 		(unlocked yes)
@@ -224,5 +237,17 @@
 		(roundrect_rratio 0.25)
 		(thermal_bridge_angle 45)
 		(uuid "4c33759e-745c-43bc-8a4e-0690a11ef076")
+	)
+	(group ""
+		(uuid "ebd7e935-c251-479c-b5fd-92e658a148f0")
+		(members "a2f8df75-6980-4834-a2d2-c877455c3980")
+	)
+	(group ""
+		(uuid "31533d9e-e953-40a1-b883-15e2424b8f27")
+		(members "bfd0836d-b079-48fd-8826-100594bd04f1")
+	)
+	(group ""
+		(uuid "9a4f1586-3d49-4248-b653-2066e0d487b1")
+		(members "e6389e21-ee25-4ba3-89e4-dbb6c230c8a1")
 	)
 )

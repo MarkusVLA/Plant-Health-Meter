@@ -57,13 +57,13 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 100.33) (xy 165.1 100.33)
+			(xy 157.48 104.14) (xy 165.1 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5aaf9e24-d15e-49e0-968b-470f5483a0b4")
+		(uuid "728e19e1-184e-4805-984f-5742fbd61bf9")
 	)
 	(bus
 		(pts
@@ -77,6 +77,16 @@
 	)
 	(wire
 		(pts
+			(xy 157.48 100.33) (xy 165.1 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e19e71c4-bb7a-4374-a354-700dd537ad7f")
+	)
+	(wire
+		(pts
 			(xy 121.92 81.28) (xy 121.92 85.09)
 		)
 		(stroke
@@ -84,16 +94,6 @@
 			(type default)
 		)
 		(uuid "e7179f76-078a-4ea7-ada9-085ce98a282c")
-	)
-	(wire
-		(pts
-			(xy 157.48 104.14) (xy 165.1 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e876ff7c-e998-4b24-bdbe-52e71ba9d9fb")
 	)
 	(text "Block Diagram"
 		(exclude_from_sim no)
@@ -212,7 +212,7 @@
 			(uuid "3634b4a1-63f3-415a-a359-ba29971a97e9")
 		)
 		(pin "USB_D+" bidirectional
-			(at 165.1 100.33 180)
+			(at 165.1 104.14 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -222,7 +222,7 @@
 			(uuid "afe722e5-5fc8-49c1-a168-630458703acc")
 		)
 		(pin "USB_D-" bidirectional
-			(at 165.1 104.14 180)
+			(at 165.1 100.33 180)
 			(effects
 				(font
 					(size 1.27 1.27)
