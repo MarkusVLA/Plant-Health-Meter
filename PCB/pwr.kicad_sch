@@ -5129,7 +5129,7 @@
 			(uuid "a50447f1-cc3a-41bd-9f1e-6981c85c03dc")
 		)
 		(instances
-			(project ""
+			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/98819006-dc75-4aad-a220-e6960b29e68b"
 					(reference "U3")
 					(unit 1)
@@ -7279,7 +7279,7 @@
 			(uuid "26b8ae8a-eae3-467e-b593-32d643bfd390")
 		)
 		(instances
-			(project ""
+			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/98819006-dc75-4aad-a220-e6960b29e68b"
 					(reference "D5")
 					(unit 1)

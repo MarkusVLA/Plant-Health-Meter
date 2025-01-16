@@ -5475,7 +5475,7 @@
 			(uuid "db5c9490-5da5-495e-b545-c656e5dd9ae3")
 		)
 		(instances
-			(project ""
+			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/f878f43f-0ef0-4ca5-9286-ff16b4b716af"
 					(reference "#PWR038")
 					(unit 1)
@@ -6113,7 +6113,7 @@
 			(uuid "6b8cdbaf-4649-4900-8f3b-50bdaabc0a06")
 		)
 		(instances
-			(project ""
+			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/f878f43f-0ef0-4ca5-9286-ff16b4b716af"
 					(reference "R11")
 					(unit 1)
@@ -6318,7 +6318,7 @@
 			)
 		)
 		(instances
-			(project ""
+			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/f878f43f-0ef0-4ca5-9286-ff16b4b716af"
 					(reference "H1")
 					(unit 1)
@@ -6809,7 +6809,7 @@
 			(uuid "0264e8a7-a654-4ea3-bd4e-db5fc0082798")
 		)
 		(instances
-			(project ""
+			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/f878f43f-0ef0-4ca5-9286-ff16b4b716af"
 					(reference "#PWR027")
 					(unit 1)
@@ -7277,7 +7277,7 @@
 			(uuid "8b4682c4-b5e9-43bf-b2b9-b7fb4189b5b0")
 		)
 		(instances
-			(project ""
+			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/f878f43f-0ef0-4ca5-9286-ff16b4b716af"
 					(reference "TP1")
 					(unit 1)
@@ -7624,7 +7624,7 @@
 			(uuid "1a79a565-b296-4501-bd4b-c3d88fe49af8")
 		)
 		(instances
-			(project ""
+			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/f878f43f-0ef0-4ca5-9286-ff16b4b716af"
 					(reference "#PWR022")
 					(unit 1)
@@ -8683,7 +8683,7 @@
 			(uuid "3876d828-0a4c-40d7-8875-1abf66435e5d")
 		)
 		(instances
-			(project ""
+			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/f878f43f-0ef0-4ca5-9286-ff16b4b716af"
 					(reference "#PWR030")
 					(unit 1)
