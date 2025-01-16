@@ -5,3 +5,4 @@ render.png
 *pcb3d
 *.bak
 *.lck
+*.DS_Store
