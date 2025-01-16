@@ -3623,6 +3623,16 @@
 	)
 	(wire
 		(pts
+			(xy 184.15 93.98) (xy 182.88 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1551fb91-bfc9-4881-bed1-015e16743950")
+	)
+	(wire
+		(pts
 			(xy 85.09 127) (xy 86.995 127)
 		)
 		(stroke
@@ -3790,6 +3800,16 @@
 			(type default)
 		)
 		(uuid "2c8d60f6-0aaf-479d-88c5-eb9e18213c8f")
+	)
+	(wire
+		(pts
+			(xy 182.88 93.98) (xy 182.88 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2d1342bf-24c9-4f3c-88c0-284440e22f74")
 	)
 	(wire
 		(pts
@@ -4410,6 +4430,16 @@
 			(type default)
 		)
 		(uuid "9e6fae24-bd12-4b7a-976b-6557052bfe7c")
+	)
+	(wire
+		(pts
+			(xy 184.15 95.25) (xy 184.15 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ebc675a-f73d-4eea-8fa7-1fc0109b6f8f")
 	)
 	(wire
 		(pts
@@ -5064,7 +5094,7 @@
 		)
 		(uuid "6d64555d-89c9-463c-84db-20df58409410")
 	)
-	(hierarchical_label "CAP_TIMER"
+	(hierarchical_label "Soil_cap"
 		(shape input)
 		(at 184.15 91.44 0)
 		(fields_autoplaced yes)
@@ -7126,7 +7156,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 182.88 91.44 0)
+		(at 184.15 95.25 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7135,7 +7165,7 @@
 		(dnp no)
 		(uuid "718e9229-b53d-4810-8224-bcf469c4ab72")
 		(property "Reference" "TP3"
-			(at 182.88 97.536 90)
+			(at 184.15 101.346 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7143,7 +7173,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 185.42 94.742 90)
+			(at 186.69 98.552 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7152,7 +7182,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 187.96 91.44 0)
+			(at 189.23 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7161,7 +7191,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 187.96 91.44 0)
+			(at 189.23 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7170,7 +7200,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 182.88 91.44 0)
+			(at 184.15 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)

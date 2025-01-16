@@ -1168,7 +1168,7 @@
 				)
 			)
 		)
-		(symbol "Diode:SS14"
+		(symbol "Diode:BAT60A"
 			(pin_numbers hide)
 			(pin_names
 				(offset 1.016) hide)
@@ -1183,7 +1183,7 @@
 					)
 				)
 			)
-			(property "Value" "SS14"
+			(property "Value" "BAT60A"
 				(at 0 -2.54 0)
 				(effects
 					(font
@@ -1191,7 +1191,7 @@
 					)
 				)
 			)
-			(property "Footprint" "Diode_SMD:D_SMA"
+			(property "Footprint" "Diode_SMD:D_SOD-323"
 				(at 0 -4.445 0)
 				(effects
 					(font
@@ -1200,7 +1200,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://www.vishay.com/docs/88746/ss12.pdf"
+			(property "Datasheet" "https://www.infineon.com/dgdl/Infineon-BAT60ASERIES-DS-v01_01-en.pdf?fileId=db3a304313d846880113def70c9304a9"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1209,7 +1209,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "40V 1A Schottky Diode, SMA"
+			(property "Description" "10V 3A High Current Recitifier Schottky Diode, SOD-323"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1227,7 +1227,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "D*SMA*"
+			(property "ki_fp_filters" "D*SOD?323*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1236,7 +1236,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "SS14_0_1"
+			(symbol "BAT60A_0_1"
 				(polyline
 					(pts
 						(xy 1.27 0) (xy -1.27 0)
@@ -1274,7 +1274,7 @@
 					)
 				)
 			)
-			(symbol "SS14_1_1"
+			(symbol "BAT60A_1_1"
 				(pin passive line
 					(at -3.81 0 0)
 					(length 2.54)
@@ -4847,16 +4847,6 @@
 		)
 		(uuid "30e77f3e-5ab4-4e18-b05b-3db4f9dc3297")
 	)
-	(text "Max 28v reverse"
-		(exclude_from_sim no)
-		(at 120.65 41.656 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "38a8d32d-371b-483d-a887-0df79232b187")
-	)
 	(text "USB JTAG and Power"
 		(exclude_from_sim no)
 		(at 108.966 115.824 0)
@@ -5142,76 +5132,6 @@
 			(project ""
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/98819006-dc75-4aad-a220-e6960b29e68b"
 					(reference "U3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Diode:SS14")
-		(at 105.41 41.91 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1d1d37ec-a3ce-4992-9930-0318c0706812")
-		(property "Reference" "D1"
-			(at 107.95 40.9574 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "SS14"
-			(at 107.95 43.4974 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Diode_SMD:D_SMA"
-			(at 109.855 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/88746/ss12.pdf"
-			(at 105.41 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "40V 1A Schottky Diode, SMA"
-			(at 105.41 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "d4d5262a-f677-448c-beb1-25622eee8b27")
-		)
-		(pin "1"
-			(uuid "7a88eb13-b98b-43f5-b991-4a100a50d8a3")
-		)
-		(instances
-			(project "Plant-health-meter"
-				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/98819006-dc75-4aad-a220-e6960b29e68b"
-					(reference "D1")
 					(unit 1)
 				)
 			)
@@ -7292,6 +7212,76 @@
 			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/98819006-dc75-4aad-a220-e6960b29e68b"
 					(reference "#PWR020")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Diode:BAT60A")
+		(at 105.41 41.91 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d6658d63-cf6e-417d-984f-40e75a4e131c")
+		(property "Reference" "D5"
+			(at 107.95 40.9574 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "BAT60A"
+			(at 107.95 43.4974 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-323"
+			(at 109.855 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.infineon.com/dgdl/Infineon-BAT60ASERIES-DS-v01_01-en.pdf?fileId=db3a304313d846880113def70c9304a9"
+			(at 105.41 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "10V 3A High Current Recitifier Schottky Diode, SOD-323"
+			(at 105.41 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "da4ea85f-9669-4cb7-ac14-d079aef05641")
+		)
+		(pin "2"
+			(uuid "26b8ae8a-eae3-467e-b593-32d643bfd390")
+		)
+		(instances
+			(project ""
+				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/98819006-dc75-4aad-a220-e6960b29e68b"
+					(reference "D5")
 					(unit 1)
 				)
 			)

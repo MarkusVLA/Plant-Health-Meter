@@ -150,7 +150,7 @@
 			)
 			(uuid "bbb54b3a-e4e2-49b1-bf1c-92c74b3c7cfa")
 		)
-		(pin "CAP_TIMER" output
+		(pin "Soil_cap" output
 			(at 129.54 74.93 270)
 			(effects
 				(font
@@ -158,7 +158,7 @@
 				)
 				(justify left)
 			)
-			(uuid "bb1a7407-df7d-48ac-9c83-1c99d4948e36")
+			(uuid "ea11a850-2765-4869-9a12-21b7159e9380")
 		)
 		(instances
 			(project "Plant-health-meter"
@@ -292,16 +292,6 @@
 			)
 			(uuid "71936e84-7d7a-400b-92ad-27dbc0956a7b")
 		)
-		(pin "CAP_TIMER" input
-			(at 121.92 85.09 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-			(uuid "673eaff0-1205-4050-aa01-bb89c88293d6")
-		)
 		(pin "USB_D-" bidirectional
 			(at 157.48 100.33 0)
 			(effects
@@ -321,6 +311,16 @@
 				(justify right)
 			)
 			(uuid "73d5494d-6735-4fe9-a652-3c7ac6eb657e")
+		)
+		(pin "Soil_cap" input
+			(at 121.92 85.09 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "60a32b7f-1aac-4337-b91e-8bfa5e0cf239")
 		)
 		(instances
 			(project "Plant-health-meter"
