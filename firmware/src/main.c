@@ -1,6 +1,7 @@
 // Simple starting program that sends text trough the serial port and blinks a LED
 #include <stdio.h>
 #include <driver/gpio.h>
+#include <freertos/FreeRTOS.h>
 #include <esp_rom_sys.h>
 
 #define LED_PIN GPIO_NUM_2
@@ -20,9 +21,9 @@ void app_main(void){
     int running = true;
     while (running){
         gpio_set_level(LED_PIN, 1);
-        esp_rom_delay_us(US_TO_MS(100));
+        vTaskDelay(pdMS_TO_TICKS(100));
         printf("Hello from esp32\n");
         gpio_set_level(LED_PIN, 0);
-        esp_rom_delay_us(US_TO_MS(900));
+        vTaskDelay(pdMS_TO_TICKS(900));
     }
 }

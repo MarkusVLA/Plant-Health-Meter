@@ -1,3 +1,2 @@
 ## Plant-health-meter
-
-This repository contains PCB design files for Aalto AAN-C2009 project PCB.
+This repository contains Aalto AAN-C2009 project device hardware configuration and embedded software.
