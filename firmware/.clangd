@@ -1,0 +1,11 @@
+CompileFlags:
+  Add:
+    - "-I/usr/include"
+    - "-I/usr/local/include"
+
+If:
+  PathMatch: .*\.(c|cpp|h|hpp)$
+CompilationDatabase:
+  Path: compile_commands.json
+---
+ClangdPath: /opt/llvm-esp/esp-clang/bin/clangd
