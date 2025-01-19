@@ -6372,13 +6372,14 @@
 		)
 		(uuid "30e77f3e-5ab4-4e18-b05b-3db4f9dc3297")
 	)
-	(text "10k Rprog for 100mA charge current"
+	(text "10k Rprog for 100mA charge current\nKeep charcge current low, so that ESP can operate\non usb power while battery is charging \nImax_usb = 500mA"
 		(exclude_from_sim no)
-		(at 67.564 76.2 0)
+		(at 50.8 78.232 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(justify left)
 		)
 		(uuid "705df005-6d37-461c-9353-3d4aab5bff59")
 	)
@@ -6420,7 +6421,7 @@
 	)
 	(text "Boost output needs to be lower than usb vbus - 0.3v \n-> 4V output and Vref is 600mV\nR1 = ((Vout/Vref) - 1) * R2\nR1 = ((4v/0.6v) - 1)) * 100k = 567k = 570k standard value\n-> 4.02 V"
 		(exclude_from_sim no)
-		(at 84.582 97.536 0)
+		(at 95.758 102.362 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6443,7 +6444,7 @@
 	)
 	(text "3.7v Li-Ion -> 4v\nAcceptable battery voltage range:\n2.7 V to 4.35 V"
 		(exclude_from_sim no)
-		(at 84.836 88.138 0)
+		(at 96.012 92.964 0)
 		(effects
 			(font
 				(size 1.27 1.27)

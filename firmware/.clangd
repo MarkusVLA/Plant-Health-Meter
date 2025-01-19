@@ -1,11 +1,10 @@
 CompileFlags:
   Add: 
-    - --target=xtensa-esp32-elf
-    - -I/opt/llvm-esp/esp-clang/include ## Install llvm-esp here or update the path
-                                        ## https://github.com/espressif/llvm-project
+    - -I/opt/llvm-esp/esp-clang/include
     - -I${IDF_PATH}/components/*/include
     - -I${HOME}/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include
     - -I${HOME}/esp/esp-idf/components/freertos/esp_additions/include/freertos
+
   Remove: 
     - -fno-tree-switch-conversion
     - -mlong-calls
@@ -15,4 +14,11 @@ CompileFlags:
     - -fstrict-volatile-bitfields
     - -isysroot=/Users/tol/.espressif/tools/xtensa-esp32-elf/esp-2021r2-8.4.0/xtensa-esp32-elf
 
-CompileCommands: build/compile_commands.json
+Diagnostics:
+  Suppress:
+    - "pp_file_not_found" # Suppresses preprocessor "file not found" diagnostics
+
+FallbackFlags: # In case compile_commands.json doesn't handle some cases
+  - -Wno-error=implicit-function-declaration
+  - -Wno-error
+

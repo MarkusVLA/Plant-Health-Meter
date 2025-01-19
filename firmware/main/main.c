@@ -5,16 +5,20 @@
 #include <nvs_flash.h>
 #include "lwip/sockets.h"
 #include "esp_log.h"
-
 #include "wifi_api.h"
+#include <math.h>
 
 #define WIFI_SSID "DNA-WIFI-42A8"
 #define WIFI_PASSWORD "80849779480"
 #define SERVER_IP "192.168.1.101"  
 #define SERVER_PORT 8080
-#define TRANSMIT_DELAY_MS 6000
+#define TRANSMIT_DELAY_MS 3000 
 
 #define TAG "tcp_client"
+
+float get_sensor_val(int t){
+    return 32 * sin(t * 0.03);
+}
 
 void send_sensor_data(float sensor_value) {
     struct sockaddr_in server_addr;
@@ -35,6 +39,7 @@ void send_sensor_data(float sensor_value) {
         snprintf(data_buffer, sizeof(data_buffer), "%.2f", sensor_value);
         send(sock, data_buffer, strlen(data_buffer), 0);
         ESP_LOGI(TAG, "Sent sensor data: %s", data_buffer);
+
     } else {
         ESP_LOGE(TAG, "Server connection failed");
     }
@@ -49,12 +54,14 @@ void app_main(void) {
         ESP_LOGE(TAG, "Failed to connect to WiFi");
         return;
     }
+    int t = 0;
 
     int running = 1;
     while(running) {
-        float sensor_reading = 6.9; 
+        float sensor_reading = get_sensor_val(t);
         send_sensor_data(sensor_reading);
         vTaskDelay(pdMS_TO_TICKS(TRANSMIT_DELAY_MS)); 
+        t++;
     }
 }
 
