@@ -14,7 +14,9 @@
 #define SERVER_PORT 8080
 #define TRANSMIT_DELAY_MS 3000 
 
-#define TAG "tcp_client"
+#define LED_PIN GPIO_NUM_14
+
+#define TAG "main"
 
 float get_sensor_val(int t){
     return 32 * sin(t * 0.03);
@@ -48,6 +50,16 @@ void send_sensor_data(float sensor_value) {
 }
 
 void app_main(void) {
+    // IO configuration setup
+    gpio_config_t io_config = {
+        .pin_bit_mask = (1ULL << LED_PIN), // 64 bit mask
+        .mode = GPIO_MODE_OUTPUT,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
+        .intr_type = GPIO_INTR_DISABLE
+    }; 
+    gpio_config(&io_config); // Pass gpio_config_t pointer to load the config
+
     init_wifi();
     esp_err_t ret = connect_wifi(WIFI_SSID, WIFI_PASSWORD);
     if (ret != ESP_OK) {
@@ -58,8 +70,11 @@ void app_main(void) {
 
     int running = 1;
     while(running) {
+        gpio_set_level(LED_PIN, 1);
         float sensor_reading = get_sensor_val(t);
         send_sensor_data(sensor_reading);
+        gpio_set_level(LED_PIN, 0);
+
         vTaskDelay(pdMS_TO_TICKS(TRANSMIT_DELAY_MS)); 
         t++;
     }
