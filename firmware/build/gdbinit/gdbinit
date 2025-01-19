@@ -1,0 +1,2 @@
+source /home/markus/Documents/my_esp32_project/build/gdbinit/symbols
+source /home/markus/Documents/my_esp32_project/build/gdbinit/connect
