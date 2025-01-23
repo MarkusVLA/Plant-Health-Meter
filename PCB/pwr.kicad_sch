@@ -4706,12 +4706,6 @@
 		(uuid "5e507ac3-c0d0-4b41-8ab3-dde2d3787c83")
 	)
 	(junction
-		(at 100.33 55.88)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6963b0d5-6124-40a9-8ab4-dae80666a7b9")
-	)
-	(junction
 		(at 223.52 88.9)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5051,7 +5045,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 55.88) (xy 100.33 55.88)
+			(xy 90.17 55.88) (xy 118.11 55.88)
 		)
 		(stroke
 			(width 0)
@@ -5521,16 +5515,6 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 63.5) (xy 100.33 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "70b16905-5da1-4536-bdde-335f3cef354b")
-	)
-	(wire
-		(pts
 			(xy 118.11 55.88) (xy 118.11 60.96)
 		)
 		(stroke
@@ -5638,16 +5622,6 @@
 			(type default)
 		)
 		(uuid "808db81b-3659-4a95-bad1-3f2e39600c0e")
-	)
-	(wire
-		(pts
-			(xy 100.33 55.88) (xy 118.11 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "80b582f8-6106-4439-bc8a-68743047b166")
 	)
 	(wire
 		(pts
@@ -6479,7 +6453,6 @@
 	)
 	(label "D-"
 		(at 92.71 147.32 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6490,7 +6463,6 @@
 	)
 	(label "D+"
 		(at 92.71 144.78 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6501,7 +6473,6 @@
 	)
 	(label "D+"
 		(at 109.22 163.83 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6512,7 +6483,6 @@
 	)
 	(label "LOAD"
 		(at 201.93 68.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6523,7 +6493,6 @@
 	)
 	(label "source"
 		(at 160.02 68.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6534,7 +6503,6 @@
 	)
 	(label "D-"
 		(at 109.22 161.29 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6545,7 +6513,6 @@
 	)
 	(label "charge"
 		(at 46.99 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6557,7 +6524,6 @@
 	(hierarchical_label "Battery_stat"
 		(shape output)
 		(at 201.93 100.33 270)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6569,7 +6535,6 @@
 	(hierarchical_label "USB_D-"
 		(shape bidirectional)
 		(at 119.38 161.29 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6581,7 +6546,6 @@
 	(hierarchical_label "USB_D+"
 		(shape bidirectional)
 		(at 119.38 163.83 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6906,7 +6870,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
+		(property "Footprint" "Inductor_SMD:L_1008_2520Metric"
 			(at 241.3 68.58 0)
 			(effects
 				(font
@@ -8846,76 +8810,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 100.33 59.69 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "90ab2492-87ea-41db-8f3c-2b436c69fecc")
-		(property "Reference" "C1"
-			(at 104.14 58.4199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10u"
-			(at 104.14 60.9599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 101.2952 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 100.33 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 100.33 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "8fb0bd87-9c9e-4241-b19d-8778f860a098")
-		)
-		(pin "1"
-			(uuid "1dca021f-2035-4a42-8738-68aba72385e9")
-		)
-		(instances
-			(project ""
-				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/98819006-dc75-4aad-a220-e6960b29e68b"
-					(reference "C1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "UJ2-MIBH2-4-SMT-TR:UJ2-MIBH2-4-SMT-TR")
 		(at 81.28 142.24 180)
 		(unit 1)
@@ -9256,73 +9150,6 @@
 			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/98819006-dc75-4aad-a220-e6960b29e68b"
 					(reference "#PWR03")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "GND_2")
-		(lib_id "power:GND")
-		(at 100.33 66.04 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9d72df82-b4e1-4f56-bdfc-32c5bc224ae8")
-		(property "Reference" "#PWR050"
-			(at 100.33 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 100.33 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 100.33 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 100.33 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 100.33 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5f8ea945-825a-4a69-a821-6684a941ee31")
-		)
-		(instances
-			(project "Plant-health-meter"
-				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/98819006-dc75-4aad-a220-e6960b29e68b"
-					(reference "#PWR050")
 					(unit 1)
 				)
 			)
