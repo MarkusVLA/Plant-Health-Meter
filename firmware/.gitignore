@@ -1,3 +1,4 @@
 build/
 .cache/
+main/private_config.h
 

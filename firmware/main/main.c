@@ -8,29 +8,31 @@
 #include "wifi_api.h"
 #include <math.h>
 
-#define WIFI_SSID "DNA-WIFI-42A8"
-#define WIFI_PASSWORD "80849779480"
-#define SERVER_IP "192.168.1.101"  
-#define SERVER_PORT 8080
+// Private config should include the defenitions:
+// WIFI_SSID
+// WIFI_PASSWORD
+// SERVER_IP
+// SERVER_PORT
+#include "private_config.h" 
+
+
 #define TRANSMIT_DELAY_MS 3000 
-
 #define LED_PIN GPIO_NUM_14
-
 #define TAG "main"
 
 float get_sensor_val(int t){
     return 32 * sin(t * 0.03);
 }
 
-void send_sensor_data(float sensor_value) {
+esp_err_t send_sensor_data(float sensor_value) {
     struct sockaddr_in server_addr;
     char data_buffer[32];
-
 
     int sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock < 0) {
         ESP_LOGE(TAG, "Failed to create socket");
-        return;
+        close(sock);
+        return ESP_FAIL;
     }
 
     server_addr.sin_family = AF_INET;
@@ -44,9 +46,35 @@ void send_sensor_data(float sensor_value) {
 
     } else {
         ESP_LOGE(TAG, "Server connection failed");
+        close(sock);
+        return ESP_FAIL;
     }
 
     close(sock);
+    return ESP_OK;
+}
+
+void transmission_status_indicator(esp_err_t status){
+    gpio_set_level(LED_PIN, 1);
+    vTaskDelay(pdMS_TO_TICKS(50));
+    gpio_set_level(LED_PIN, 0);
+    vTaskDelay(pdMS_TO_TICKS(50)); 
+
+    if (status == ESP_OK) {
+        return; 
+        
+    } else if (status == ESP_FAIL){
+        // Blink led again
+        gpio_set_level(LED_PIN, 1);
+        vTaskDelay(pdMS_TO_TICKS(50));
+        gpio_set_level(LED_PIN, 0);
+        return;
+
+    } else {
+        // Something unexpected happended. This should not happen
+        ESP_LOGE(TAG, "Unknown transmission status indicator");
+        return;
+    }
 }
 
 void app_main(void) {
@@ -58,8 +86,8 @@ void app_main(void) {
         .pull_up_en = GPIO_PULLUP_DISABLE,
         .intr_type = GPIO_INTR_DISABLE
     }; 
-    gpio_config(&io_config); // Pass gpio_config_t pointer to load the config
 
+    gpio_config(&io_config); // Pass gpio_config_t pointer to load the config
     init_wifi();
     esp_err_t ret = connect_wifi(WIFI_SSID, WIFI_PASSWORD);
     if (ret != ESP_OK) {
@@ -70,12 +98,12 @@ void app_main(void) {
 
     int running = 1;
     while(running) {
-        gpio_set_level(LED_PIN, 1);
         float sensor_reading = get_sensor_val(t);
-        send_sensor_data(sensor_reading);
-        gpio_set_level(LED_PIN, 0);
+        esp_err_t transmission_status = send_sensor_data(sensor_reading);
 
-        vTaskDelay(pdMS_TO_TICKS(TRANSMIT_DELAY_MS)); 
+        // Indicate transmission status with LED
+        transmission_status_indicator(transmission_status); 
+        vTaskDelay(pdMS_TO_TICKS(TRANSMIT_DELAY_MS));
         t++;
     }
 }
