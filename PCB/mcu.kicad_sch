@@ -5589,7 +5589,7 @@
 	)
 	(text "35+j10 Ohm"
 		(exclude_from_sim no)
-		(at 182.372 76.454 0)
+		(at 182.118 76.454 0)
 		(effects
 			(font
 				(size 1.27 1.27)

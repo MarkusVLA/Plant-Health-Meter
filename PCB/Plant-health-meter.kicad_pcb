@@ -423,7 +423,7 @@
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C26"
-			(at -0.27 1.5 360)
+			(at -0.27 1.5 0)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "4293aaf9-8fe3-4b27-be68-c6e6e833d76a")
@@ -435,7 +435,7 @@
 			)
 		)
 		(property "Value" "1n"
-			(at 0 1.16 360)
+			(at 0 1.16 0)
 			(layer "F.Fab")
 			(uuid "ee492960-c01d-41e6-ad49-b9608b8172a4")
 			(effects
@@ -590,7 +590,7 @@
 			(uuid "7f36a8fd-72f6-4e15-8313-ba634e63b1fc")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "44eb80e5-2aff-4fa3-9496-32c4a0c6cc23")
 			(effects
@@ -2529,6 +2529,7 @@
 			(uuid "a02715c2-de80-4d42-9ac3-5be43ac3d029")
 		)
 		(model "${KICAD8_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.wrl"
+			(hide yes)
 			(offset
 				(xyz 0 0 -1.5)
 			)
@@ -4544,6 +4545,7 @@
 			(uuid "6ec1dbae-397b-4dac-bcd1-5ac50f497e9a")
 		)
 		(model "${KICAD8_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x04_P2.54mm_Vertical.wrl"
+			(hide yes)
 			(offset
 				(xyz 0 0 -1.5)
 			)
@@ -11488,7 +11490,7 @@
 		(descr "SOIC, 8 Pin (JEDEC MS-012AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_8.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py")
 		(tags "SOIC SO")
 		(property "Reference" "U9"
-			(at 0 -3.4 360)
+			(at 0 -3.4 0)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "9749ecac-db79-4638-9e36-fad0fd6edeaf")
@@ -11500,7 +11502,7 @@
 			)
 		)
 		(property "Value" "TLC555xD"
-			(at 0 3.4 360)
+			(at 0 3.4 0)
 			(layer "F.Fab")
 			(uuid "b36f8e50-8690-41b4-80cc-696a6cd32cc9")
 			(effects
@@ -11511,7 +11513,7 @@
 			)
 		)
 		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "f67060a2-8a80-465d-80c9-6e3f51fd9af7")
@@ -11523,7 +11525,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tlc555.pdf"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "ec96c45d-04d9-4697-86b5-e14dcd169115")
@@ -11535,7 +11537,7 @@
 			)
 		)
 		(property "Description" "Single LinCMOS Timer, 555 compatible, SOIC-8"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "3a550109-6f74-4c6c-9e76-5dcb3b5bd001")
@@ -11694,7 +11696,7 @@
 			(uuid "3766d57b-f9a2-4b42-b85d-d62c88d42999")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "59d0f356-740a-4d63-8776-963530684c99")
 			(effects
@@ -12869,7 +12871,7 @@
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor")
 		(property "Reference" "R17"
-			(at -2.75 0 360)
+			(at -2.75 0 0)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "fd3e44dd-0664-4eca-9f53-2ce7b6f436cf")
@@ -12881,7 +12883,7 @@
 			)
 		)
 		(property "Value" "1M"
-			(at 0 1.17 360)
+			(at 0 1.17 0)
 			(layer "F.Fab")
 			(uuid "5ad57df1-3120-4376-8dfc-9355a5b8c680")
 			(effects
@@ -13036,7 +13038,7 @@
 			(uuid "752ff42b-2a69-480d-a563-2be0ff4655c2")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "1f0e226c-61a3-459b-b4e0-574fd7505382")
 			(effects
@@ -18193,6 +18195,7 @@
 			(uuid "53079a1d-722d-448f-b155-bf35dd1e664f")
 		)
 		(model "${KICAD8_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.wrl"
+			(hide yes)
 			(offset
 				(xyz 0 0 -1.5)
 			)
@@ -19327,6 +19330,7 @@
 			(uuid "13395db1-1f14-4664-9681-87d683edd511")
 		)
 		(model "${KICAD8_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.wrl"
+			(hide yes)
 			(offset
 				(xyz 0 0 -1.5)
 			)
@@ -27202,8 +27206,8 @@
 		)
 		(polygon
 			(pts
-				(xy 131 116.5) (xy 131 108.25) (xy 134.25 108.25) (xy 134.25 108.25) (xy 136.25 108.25) (xy 136.25 112.25)
-				(xy 135 112.25) (xy 135 116.5)
+				(xy 131 116.5) (xy 131 108.25) (xy 134.25 108.25) (xy 136.25 108.25) (xy 136.25 112.25) (xy 135 112.25)
+				(xy 135 116.5)
 			)
 		)
 		(filled_polygon
