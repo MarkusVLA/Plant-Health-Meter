@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.6
+          "min_clearance": 0.2
         }
       },
       "diff_pair_dimensions": [
@@ -662,6 +662,10 @@
     [
       "673b6cbc-4dd8-4397-ae5a-9b0518551eea",
       "Sensors"
+    ],
+    [
+      "18c41965-930c-4295-847b-928f7d9a5c7f",
+      "ADC"
     ]
   ],
   "text_variables": {}
