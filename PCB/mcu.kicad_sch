@@ -4777,7 +4777,7 @@
 	)
 	(text "Match port to transmission line:\n50 Ohm impedance: W = 0.32"
 		(exclude_from_sim no)
-		(at 215.646 76.454 0)
+		(at 210.312 75.692 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5228,7 +5228,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "3.3p"
+		(property "Value" "2.2p"
 			(at 205.74 88.9 0)
 			(effects
 				(font
@@ -7247,7 +7247,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "2.2n"
+		(property "Value" "2.6n"
 			(at 216.154 80.264 90)
 			(effects
 				(font
@@ -8443,7 +8443,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "3.3p"
+		(property "Value" "2.2p"
 			(at 218.44 88.9 0)
 			(effects
 				(font
