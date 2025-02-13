@@ -2739,9 +2739,9 @@
 		)
 		(uuid "a718d5ce-1c2e-40ef-ac14-4be16315f173")
 	)
-	(text "Transimpedance amplifier\n\nVout/Iin = -Rf/(RfCfs + 1)\nGain = -33k V/A\nwhere:\nRf = 33k\nCf = 1uF\nfc = 1/(2π×Rf×Cf) = 4.8Hz\nFor 100uA input current:\nVout = 100uA × 33kΩ = 3.3V"
+	(text "Transimpedance amplifier\n\nVout/Iin = -Rf/(RfCfs + 1)"
 		(exclude_from_sim no)
-		(at 208.534 43.688 0)
+		(at 208.534 45.974 0)
 		(effects
 			(font
 				(size 1.27 1.27)

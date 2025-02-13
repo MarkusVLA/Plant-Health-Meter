@@ -4777,7 +4777,7 @@
 	)
 	(text "Match port to transmission line:\n50 Ohm impedance: W = 0.32"
 		(exclude_from_sim no)
-		(at 210.312 75.692 0)
+		(at 211.328 75.438 0)
 		(effects
 			(font
 				(size 1.27 1.27)

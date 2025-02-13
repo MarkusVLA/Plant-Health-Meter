@@ -13,7 +13,7 @@
 	)
 	(bus
 		(pts
-			(xy 127 109.22) (xy 132.08 109.22)
+			(xy 127 105.41) (xy 132.08 105.41)
 		)
 		(stroke
 			(width 0)
@@ -83,7 +83,7 @@
 	)
 	(bus
 		(pts
-			(xy 132.08 109.22) (xy 132.08 85.09)
+			(xy 132.08 105.41) (xy 132.08 85.09)
 		)
 		(stroke
 			(width 0)
@@ -114,8 +114,8 @@
 		(uuid "42ca1860-d235-4169-9410-ce2a60d6a4b7")
 	)
 	(sheet
-		(at 113.03 104.14)
-		(size 13.97 17.78)
+		(at 113.03 101.6)
+		(size 13.97 20.32)
 		(stroke
 			(width 0.1524)
 			(type solid)
@@ -126,7 +126,7 @@
 		)
 		(uuid "18c41965-930c-4295-847b-928f7d9a5c7f")
 		(property "Sheetname" "ADC"
-			(at 118.11 106.426 0)
+			(at 118.11 103.886 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -137,7 +137,7 @@
 			)
 		)
 		(property "Sheetfile" "adc.kicad_sch"
-			(at 113.03 123.7746 0)
+			(at 113.03 121.2346 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -157,7 +157,7 @@
 			(uuid "2d671cec-bf9d-46d6-a1d6-cea5d7a5abf9")
 		)
 		(pin "Sensor bus" bidirectional
-			(at 127 109.22 0)
+			(at 127 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -175,6 +175,16 @@
 				(justify left)
 			)
 			(uuid "30838f14-0348-4ff0-8a0b-0afb92a6e4a7")
+		)
+		(pin "ALERT" output
+			(at 127 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "f8207583-bdce-4f13-b71b-5ffd3560778f")
 		)
 		(instances
 			(project "Plant-health-meter"
