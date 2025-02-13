@@ -18,7 +18,7 @@
 
 
 #define TRANSMIT_DELAY_MS 3000 
-#define LED_PIN GPIO_NUM_14
+#define LED_PIN GPIO_NUM_39 
 #define TAG "main"
 
 
@@ -52,7 +52,8 @@ void app_main(void) {
 
     int running = 1;
     while(running) {
-        vTaskDelay(pdMS_TO_TICKS(8000));
+        vTaskDelay(pdMS_TO_TICKS(1000));
+        // DO something.
     }
 
     stop_webserver(server_handle);

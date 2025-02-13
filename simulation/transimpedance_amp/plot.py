@@ -18,7 +18,7 @@ magnitude_db = 20 * np.log10(np.abs(transfer_function(Rf, Cf, s)))
 voltage_out = np.abs(transfer_function(Rf, Cf, s)) * Id
 
 # Create figure with two subplots
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10))
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(6, 4))
 
 # Bode plot
 ax1.semilogx(f, magnitude_db)
@@ -32,7 +32,7 @@ ax2.semilogx(f, voltage_out)
 ax2.grid(True)
 ax2.set_xlabel('Frequency (Hz)')
 ax2.set_ylabel('Output Voltage (V)')
-ax2.set_title(f'Output Voltage at {Id*1000:.0f}mA Input Current')
+ax2.set_title(f'Output Voltage at 100mA Input Current')
 
 plt.tight_layout()
 plt.show()
