@@ -6324,7 +6324,7 @@
 	)
 	(text "Power MUX"
 		(exclude_from_sim no)
-		(at 172.466 42.164 0)
+		(at 173.228 42.672 0)
 		(effects
 			(font
 				(size 2 2)

@@ -1,3 +1,5 @@
+// Simple starting point program connects to wifi and creates a HTTP server.
+
 #include <driver/gpio.h>
 #include <freertos/FreeRTOS.h>
 #include <esp_wifi.h>
@@ -8,31 +10,18 @@
 #include "esp_log.h"
 #include "wifi_api.h"
 #include "rest_api.h"
+#include "io_config.h"
 
 // Private config should include the defenitions:
 // WIFI_SSID
 // WIFI_PASSWORD
-// SERVER_IP
-// SERVER_PORT
 #include "private_config.h" 
 
-
-#define TRANSMIT_DELAY_MS 3000 
-#define LED_PIN GPIO_NUM_39 
 #define TAG "main"
-
 
 void app_main(void) {
     // IO configuration setup
-    gpio_config_t io_config = {
-        .pin_bit_mask = (1ULL << LED_PIN), // 64 bit mask
-        .mode = GPIO_MODE_OUTPUT,
-        .pull_down_en = GPIO_PULLDOWN_DISABLE,
-        .pull_up_en = GPIO_PULLUP_DISABLE,
-        .intr_type = GPIO_INTR_DISABLE
-    }; 
-
-    gpio_config(&io_config); // Pass gpio_config_t pointer to load the config
+    gpio_config(&io_config); 
     init_wifi();
     
     // Init wifi connection
