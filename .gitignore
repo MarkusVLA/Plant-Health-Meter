@@ -6,3 +6,4 @@ render.png
 *.bak
 *.lck
 *.DS_Store
+*myenv
