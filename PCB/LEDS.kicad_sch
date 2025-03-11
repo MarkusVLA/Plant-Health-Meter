@@ -2204,7 +2204,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "17d3f048-1309-4bbd-bbb8-d62623ca4f6a")
-		(property "Reference" "#PWR062"
+		(property "Reference" "#PWR063"
 			(at 135.89 143.51 0)
 			(effects
 				(font
@@ -2254,7 +2254,7 @@
 		(instances
 			(project ""
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/76ce39c2-8099-4ede-a2b7-8493208a9861"
-					(reference "#PWR062")
+					(reference "#PWR063")
 					(unit 1)
 				)
 			)
@@ -2270,7 +2270,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1c8c9c2e-e38d-4080-a33d-e8610a995cd7")
-		(property "Reference" "#PWR060"
+		(property "Reference" "#PWR061"
 			(at 111.76 138.43 0)
 			(effects
 				(font
@@ -2320,7 +2320,7 @@
 		(instances
 			(project ""
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/76ce39c2-8099-4ede-a2b7-8493208a9861"
-					(reference "#PWR060")
+					(reference "#PWR061")
 					(unit 1)
 				)
 			)
@@ -2336,7 +2336,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "402a5870-e8d2-485f-85de-1c06b98d805f")
-		(property "Reference" "#PWR063"
+		(property "Reference" "#PWR064"
 			(at 156.21 85.09 0)
 			(effects
 				(font
@@ -2386,7 +2386,7 @@
 		(instances
 			(project ""
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/76ce39c2-8099-4ede-a2b7-8493208a9861"
-					(reference "#PWR063")
+					(reference "#PWR064")
 					(unit 1)
 				)
 			)
@@ -2402,7 +2402,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "48e69ac6-552d-4679-82e8-8099fa7339f7")
-		(property "Reference" "#PWR061"
+		(property "Reference" "#PWR062"
 			(at 134.62 67.31 0)
 			(effects
 				(font
@@ -2452,7 +2452,7 @@
 		(instances
 			(project ""
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/76ce39c2-8099-4ede-a2b7-8493208a9861"
-					(reference "#PWR061")
+					(reference "#PWR062")
 					(unit 1)
 				)
 			)
@@ -2469,7 +2469,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "490fde14-2098-4ad8-85ab-c108eb13cb1c")
-		(property "Reference" "C30"
+		(property "Reference" "C32"
 			(at 158.75 71.12 0)
 			(effects
 				(font
@@ -2523,7 +2523,7 @@
 		(instances
 			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/76ce39c2-8099-4ede-a2b7-8493208a9861"
-					(reference "C30")
+					(reference "C32")
 					(unit 1)
 				)
 			)
@@ -2679,7 +2679,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a6729329-e01a-4e77-9b9a-57f104ea6b5f")
-		(property "Reference" "C29"
+		(property "Reference" "C31"
 			(at 146.05 72.39 0)
 			(effects
 				(font
@@ -2733,7 +2733,7 @@
 		(instances
 			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/76ce39c2-8099-4ede-a2b7-8493208a9861"
-					(reference "C29")
+					(reference "C31")
 					(unit 1)
 				)
 			)
@@ -2749,7 +2749,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "afc26020-fe10-4274-8dfa-ff40528acc10")
-		(property "Reference" "#PWR059"
+		(property "Reference" "#PWR060"
 			(at 111.76 121.92 0)
 			(effects
 				(font
@@ -2799,7 +2799,7 @@
 		(instances
 			(project ""
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/76ce39c2-8099-4ede-a2b7-8493208a9861"
-					(reference "#PWR059")
+					(reference "#PWR060")
 					(unit 1)
 				)
 			)
