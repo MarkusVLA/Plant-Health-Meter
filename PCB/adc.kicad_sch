@@ -788,6 +788,18 @@
 		)
 		(uuid "72678227-d2d2-47e7-a550-5e9955fb6cc2")
 	)
+	(text "ADC"
+		(exclude_from_sim no)
+		(at 185.166 174.752 0)
+		(effects
+			(font
+				(size 3 3)
+				(thickness 0.6)
+				(bold yes)
+			)
+		)
+		(uuid "fda36d9c-3e51-419b-9b63-b83aac87bb4e")
+	)
 	(junction
 		(at 114.3 114.3)
 		(diameter 0)
@@ -1318,7 +1330,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "100k"
 			(at 116.84 120.6499 0)
 			(effects
 				(font
@@ -1612,7 +1624,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "100k"
 			(at 109.22 110.49 90)
 			(effects
 				(font

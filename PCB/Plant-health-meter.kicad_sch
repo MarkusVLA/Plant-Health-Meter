@@ -215,6 +215,16 @@
 	)
 	(wire
 		(pts
+			(xy 181.61 113.03) (xy 181.61 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e197b65d-8b3a-4857-b87e-bead73b21002")
+	)
+	(wire
+		(pts
 			(xy 177.8 113.03) (xy 177.8 120.65)
 		)
 		(stroke
@@ -554,6 +564,16 @@
 				(justify left)
 			)
 		)
+		(pin "BOOS_EN" input
+			(at 181.61 120.65 90)
+			(uuid "6c98c436-e71c-4cee-9fc3-d536451fca06")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771"
@@ -662,6 +682,16 @@
 		(pin "IO_INT" input
 			(at 157.48 91.44 180)
 			(uuid "e0570a3e-6385-4e5f-af62-f2a401665d60")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "BOOS_EN" output
+			(at 181.61 113.03 270)
+			(uuid "690c9d94-0930-4d32-81c7-c2f9681e347e")
 			(effects
 				(font
 					(size 1.27 1.27)
