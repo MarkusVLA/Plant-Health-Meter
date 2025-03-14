@@ -1520,7 +1520,7 @@
 		)
 		(uuid "bd90d677-3eb8-4f70-b456-44bce2ebbe5d")
 	)
-	(text "Transimpedance amplifier\n\nVout/Iin = -Rf/(RfCfs + 1)\n\n-3dB cut off at 9.65Hz for chosen\ncomponent values."
+	(text "Transimpedance amplifier\n\nVout/Iin = -Rf/(RfCfs + 1)\n\n-3dB cut off at 21.9Hz for chosen\ncomponent values."
 		(exclude_from_sim no)
 		(at 87.376 42.926 0)
 		(effects
@@ -1582,12 +1582,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "17127d57-c624-44a9-b5c6-512736ea7e1a")
-	)
-	(junction
-		(at 107.95 130.81)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1f48e38d-08b0-4d7a-b011-e90a9a90934e")
 	)
 	(junction
 		(at 53.34 48.26)
@@ -2221,16 +2215,6 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 120.65) (xy 107.95 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a8bf5344-3c88-4b5d-baaa-d5c115b02ff7")
-	)
-	(wire
-		(pts
 			(xy 78.74 132.08) (xy 83.82 132.08)
 		)
 		(stroke
@@ -2308,6 +2292,16 @@
 			(type default)
 		)
 		(uuid "c29faba0-9852-4a11-9f52-677ccd5d9f6b")
+	)
+	(wire
+		(pts
+			(xy 107.95 130.81) (xy 107.95 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c3b64777-fc54-44a1-be6a-22cc2cebad72")
 	)
 	(wire
 		(pts
@@ -2805,7 +2799,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "23be2469-a5a1-4193-8834-dde23b2130cf")
-		(property "Reference" "R22"
+		(property "Reference" "R20"
 			(at 193.04 83.8199 0)
 			(effects
 				(font
@@ -2855,76 +2849,6 @@
 		)
 		(pin "2"
 			(uuid "99ff3ed8-bb3a-4c8f-8e7b-c866158993b9")
-		)
-		(instances
-			(project "Plant-health-meter"
-				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
-					(reference "R22")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 107.95 127 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp yes)
-		(fields_autoplaced yes)
-		(uuid "32fa065d-0379-4643-8de7-486e7a86f52d")
-		(property "Reference" "R20"
-			(at 110.49 125.7299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0"
-			(at 110.49 128.2699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 106.172 127 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 107.95 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 107.95 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "652a24e7-e344-46a4-b2fe-b7141f50b920")
-		)
-		(pin "2"
-			(uuid "64f8a1cd-eb12-44f6-bd72-f6f115d79b2e")
 		)
 		(instances
 			(project "Plant-health-meter"
@@ -3092,7 +3016,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "500"
+		(property "Value" "510"
 			(at 101.5999 58.42 0)
 			(effects
 				(font
@@ -3453,7 +3377,7 @@
 				)
 			)
 		)
-		(property "Value" "500n"
+		(property "Value" "220n"
 			(at 68.58 43.18 90)
 			(effects
 				(font
@@ -3461,7 +3385,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 72.39 47.2948 0)
 			(effects
 				(font
@@ -3513,7 +3437,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "854c3c43-be86-47c8-b0a1-61508da3badf")
-		(property "Reference" "D7"
+		(property "Reference" "D10"
 			(at 199.7075 97.79 0)
 			(effects
 				(font
@@ -3565,7 +3489,7 @@
 		(instances
 			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
-					(reference "D7")
+					(reference "D10")
 					(unit 1)
 				)
 			)
@@ -3581,7 +3505,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "856f6ca7-7c16-442d-adf0-b1dc933f3eb9")
-		(property "Reference" "#PWR053"
+		(property "Reference" "#PWR052"
 			(at 107.95 144.78 0)
 			(effects
 				(font
@@ -3631,7 +3555,7 @@
 		(instances
 			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
-					(reference "#PWR053")
+					(reference "#PWR052")
 					(unit 1)
 				)
 			)
@@ -3770,71 +3694,6 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 107.95 120.65 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b2427357-6c1a-4140-812c-6156b6a575c5")
-		(property "Reference" "#PWR052"
-			(at 107.95 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 107.95 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 107.95 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 107.95 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 107.95 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f5a8b492-428c-4e96-912b-58609039df71")
-		)
-		(instances
-			(project "Plant-health-meter"
-				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
-					(reference "#PWR052")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
 		(at 78.74 69.85 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3894,76 +3753,6 @@
 			(project ""
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
 					(reference "#PWR049")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 107.95 134.62 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c5206347-65f8-46e4-86d3-4cfdf883bd49")
-		(property "Reference" "R21"
-			(at 110.49 133.3499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0"
-			(at 110.49 135.8899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 106.172 134.62 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 107.95 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 107.95 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e32de3b2-019e-4982-9038-772faf2dc17c")
-		)
-		(pin "2"
-			(uuid "3c0653bc-178e-4219-8452-986957838ead")
-		)
-		(instances
-			(project "Plant-health-meter"
-				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
-					(reference "R21")
 					(unit 1)
 				)
 			)
@@ -4046,7 +3835,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cdfcdd91-b9bb-4f5b-904a-66e96497b7d9")
-		(property "Reference" "R23"
+		(property "Reference" "R21"
 			(at 219.71 97.7901 0)
 			(effects
 				(font
@@ -4100,7 +3889,7 @@
 		(instances
 			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
-					(reference "R23")
+					(reference "R21")
 					(unit 1)
 				)
 			)
@@ -4116,7 +3905,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d1aa022b-01c1-4556-82ef-8329777f3492")
-		(property "Reference" "#PWR055"
+		(property "Reference" "#PWR054"
 			(at 222.25 110.49 0)
 			(effects
 				(font
@@ -4166,7 +3955,7 @@
 		(instances
 			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
-					(reference "#PWR055")
+					(reference "#PWR054")
 					(unit 1)
 				)
 			)
@@ -4182,7 +3971,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d22d5ab0-1d08-4efc-9941-88996df72fd2")
-		(property "Reference" "#PWR054"
+		(property "Reference" "#PWR053"
 			(at 110.49 166.37 0)
 			(effects
 				(font
@@ -4232,7 +4021,7 @@
 		(instances
 			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
-					(reference "#PWR054")
+					(reference "#PWR053")
 					(unit 1)
 				)
 			)
@@ -4453,7 +4242,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e7ce9d3b-6dfc-473a-b9b4-daa23874d798")
-		(property "Reference" "D6"
+		(property "Reference" "D9"
 			(at 38.862 64.008 90)
 			(effects
 				(font
@@ -4507,7 +4296,7 @@
 		(instances
 			(project ""
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
-					(reference "D6")
+					(reference "D9")
 					(unit 1)
 				)
 			)
@@ -4671,7 +4460,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fed0f034-0ad4-440d-99ec-d27d5c96f6d4")
-		(property "Reference" "R24"
+		(property "Reference" "R22"
 			(at 232.4101 93.98 0)
 			(effects
 				(font
@@ -4680,7 +4469,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "500"
+		(property "Value" "510"
 			(at 229.8701 93.98 0)
 			(effects
 				(font
@@ -4725,7 +4514,7 @@
 		(instances
 			(project "Plant-health-meter"
 				(path "/357055bf-c309-4d6b-a2fa-f5ee5ba59771/673b6cbc-4dd8-4397-ae5a-9b0518551eea"
-					(reference "R24")
+					(reference "R22")
 					(unit 1)
 				)
 			)
