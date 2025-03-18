@@ -1,8 +1,7 @@
-#include "rest_api.h"
+#include "http_server.h"
 #include "sensor_api.h"
 
 // HELPERS
-
 static esp_err_t get_handler(httpd_req_t *req) {
     char response[128];
 
@@ -14,7 +13,10 @@ static esp_err_t get_handler(httpd_req_t *req) {
     return ESP_OK;
 }
 
-#define MIN(a, b) (a < b ? a: b)
+#ifndef MIN
+    #define MIN(a, b) (a < b ? a: b)
+#endif // MIN
+       
 static esp_err_t post_handler(httpd_req_t *req){
     char content[100];
     size_t recv_size = MIN(req->content_len, sizeof(content));

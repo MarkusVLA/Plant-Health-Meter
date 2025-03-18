@@ -12,7 +12,7 @@ CompileFlags:
     - -mtext-section-literals
     - -mlongcalls
     - -fstrict-volatile-bitfields
-    - -isysroot=/Users/tol/.espressif/tools/xtensa-esp32-elf/esp-2021r2-8.4.0/xtensa-esp32-elf
+    # - -isysroot=/Users/tol/.espressif/tools/xtensa-esp32-elf/esp-2021r2-8.4.0/xtensa-esp32-elf
 
 Diagnostics:
   Suppress:

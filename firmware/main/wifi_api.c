@@ -12,7 +12,7 @@
 #define WIFI_CONNECTED_BIT BIT0
 #define WIFI_FAIL_BIT BIT1
 
-static const int WIFI_RETRY_ATTEMPT = 3;
+static const int WIFI_RETRY_ATTEMPT = 16;
 static int wifi_retry_count = 0;
 
 static esp_netif_t *netif = NULL;

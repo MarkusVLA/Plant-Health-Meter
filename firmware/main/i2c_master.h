@@ -7,8 +7,8 @@
 
 #define BME280_ADDR         0x76 // SDO pulled low 
                          
-#define I2C_SCL_PIN         GPIO_NUM_22
-#define I2C_SDA_PIN         GPIO_NUM_21
+#define I2C_SCL_PIN         GPIO_NUM_42
+#define I2C_SDA_PIN         GPIO_NUM_41
 
 #define I2C_SCL_FREQ        100e3 // 100kHz clock out
 #define I2C_PORT_NUM        I2C_NUM_1 
