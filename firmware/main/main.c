@@ -11,6 +11,7 @@
 #include "wifi_api.h"
 #include "rest_api.h"
 #include "io_config.h"
+#include "i2c_master.h"
 
 // Private config should include the defenitions:
 // WIFI_SSID
@@ -29,7 +30,7 @@ void app_main(void) {
 
     if (ret != ESP_OK) {
         ESP_LOGE(TAG, "Failed to connect to WiFi");
-        return;
+        ESP_LOGW(TAG, "Continuing to main without WiFi!");
     }
 
     esp_netif_ip_info_t ip_info;
@@ -39,10 +40,16 @@ void app_main(void) {
     // Init REST API
     httpd_handle_t server_handle = start_webserver();
 
+    // Init i2c driver:
+    ret = begin_i2c();
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to init i2c driver");
+    }
+
     int running = 1;
     while(running) {
-        vTaskDelay(pdMS_TO_TICKS(1000));
-        // DO something.
+        vTaskDelay(pdMS_TO_TICKS(20));
+        test_i2c();
     }
 
     stop_webserver(server_handle);
