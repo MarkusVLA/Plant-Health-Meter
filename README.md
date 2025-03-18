@@ -11,7 +11,7 @@ This repository contains Aalto AAN-C2009 project device hardware configuration a
 ## PCB
 PCB design done in KiCad.
 ![alt tex](PCB/img/3d.png)
-![alt tex](PCB/img/layouyt.png)
+![alt tex](PCB/img/layout.png)
 Schematic: [PDF](PCB/img/schematic.pdf)
 
 ## Hardware Components
