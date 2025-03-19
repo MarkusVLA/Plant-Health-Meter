@@ -42,6 +42,11 @@ void app_main(void) {
     esp_netif_ip_info_t ip_info;
     esp_netif_get_ip_info(esp_netif_get_handle_from_ifkey("WIFI_STA"), &ip_info);
     ESP_LOGI(TAG, "Server running on address: " IPSTR, IP2STR(&ip_info.ip));
+    // set the transmit power
+    esp_err_t power_ret = esp_wifi_set_max_tx_power(50); // 8 - 84 
+    if (power_ret != ESP_OK) {
+        ESP_LOGW(TAG, "Failed to set WiFi transmit power: %s", esp_err_to_name(power_ret));
+    }
     
     // Init REST API
     httpd_handle_t server_handle = start_webserver();
@@ -55,14 +60,14 @@ void app_main(void) {
     
     ESP_LOGI(TAG, "Performing tasks before sleep");
     xTaskCreate(test_task, "test_task", 2048, NULL, 5, NULL);
-    vTaskDelay(pdMS_TO_TICKS(10000));
+    vTaskDelay(pdMS_TO_TICKS(1000000)); // Awake time
 
     ESP_LOGI(TAG, "Cleaning up before sleep");
     stop_webserver(server_handle);
     deinit_wifi();
     
     ESP_LOGI(TAG, "Entering deep sleep for 10 seconds");
-    esp_sleep_enable_timer_wakeup(10 * 1000000); // 10 seconds in microseconds
+    esp_sleep_enable_timer_wakeup(1 * 10e6); // seconds in microseconds
     
     esp_deep_sleep_start();
     

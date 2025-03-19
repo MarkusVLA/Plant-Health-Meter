@@ -6,6 +6,7 @@
 #include "string.h"
 #include "stdio.h"
 
+#define JSON_PACKET_LEN 256
 
 httpd_handle_t start_webserver();
 

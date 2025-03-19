@@ -2,5 +2,6 @@
 //
 
 #pragma once
+#include "packet.h"
 
-float get_sensor_val(int t);
+sensor_data_packet_t get_sensor_data_packet(void);

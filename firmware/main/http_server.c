@@ -1,15 +1,25 @@
 #include "http_server.h"
 #include "sensor_api.h"
+#include "packet.h"
+#include "driver/gpio.h"
+#include "io_config.h"
 
 // HELPERS
+
+
 static esp_err_t get_handler(httpd_req_t *req) {
-    char response[128];
+    gpio_set_level(LED_PIN, 1);
 
-    snprintf(response, sizeof(response), 
-             "HTTP Get response: %.1fC\n", 
-             23.5); // Hard-coded value
-
+    char response[JSON_PACKET_LEN];
+    sensor_data_packet_t data_packet = get_sensor_data_packet();
+    packet_to_json(response, JSON_PACKET_LEN, &data_packet);
+     
+    /*snprintf(response, sizeof(response), */
+    /*         "HTTP Get response: %.1fC\n", */
+    /*         23.5); // Hard-coded value*/
+    
     httpd_resp_send(req, response, HTTPD_RESP_USE_STRLEN);
+    gpio_set_level(LED_PIN, 0);
     return ESP_OK;
 }
 
