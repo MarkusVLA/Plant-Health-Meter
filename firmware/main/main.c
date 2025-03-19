@@ -66,9 +66,8 @@ void app_main(void) {
     stop_webserver(server_handle);
     deinit_wifi();
     
-    ESP_LOGI(TAG, "Entering deep sleep for 10 seconds");
+    ESP_LOGI(TAG, "Entering deep sleep");
     esp_sleep_enable_timer_wakeup(1 * 10e6); // seconds in microseconds
-    
     esp_deep_sleep_start();
     
 }

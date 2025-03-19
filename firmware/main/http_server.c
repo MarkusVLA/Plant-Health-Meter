@@ -3,9 +3,9 @@
 #include "packet.h"
 #include "driver/gpio.h"
 #include "io_config.h"
+#include "i2c_master.h"
 
 // HELPERS
-
 
 static esp_err_t get_handler(httpd_req_t *req) {
     gpio_set_level(LED_PIN, 1);
@@ -14,10 +14,6 @@ static esp_err_t get_handler(httpd_req_t *req) {
     sensor_data_packet_t data_packet = get_sensor_data_packet();
     packet_to_json(response, JSON_PACKET_LEN, &data_packet);
      
-    /*snprintf(response, sizeof(response), */
-    /*         "HTTP Get response: %.1fC\n", */
-    /*         23.5); // Hard-coded value*/
-    
     httpd_resp_send(req, response, HTTPD_RESP_USE_STRLEN);
     gpio_set_level(LED_PIN, 0);
     return ESP_OK;
@@ -28,7 +24,8 @@ static esp_err_t get_handler(httpd_req_t *req) {
 #endif // MIN
        
 static esp_err_t post_handler(httpd_req_t *req){
-    char content[100];
+    char content[256];
+    memset(content, 0x00, 256);
     size_t recv_size = MIN(req->content_len, sizeof(content));
     int ret = httpd_req_recv(req, content, recv_size);
     
@@ -38,6 +35,11 @@ static esp_err_t post_handler(httpd_req_t *req){
         } 
         return ESP_FAIL; 
     }
+
+    // Print post request data
+    printf("Post request data:\n%s\n", content);
+    // Write post reuqest data to i2c bus
+    i2c_write_byte_array((unsigned char*) content, strlen(content));
     const char resp[] = "URI POST Response";
     httpd_resp_send(req, resp, HTTPD_RESP_USE_STRLEN);
     return ESP_OK;
