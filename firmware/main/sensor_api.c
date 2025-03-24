@@ -1,14 +1,16 @@
 #include "sensor_api.h"
 #include <math.h>
-// Placeholder function
+
+
+
 
 sensor_data_packet_t get_sensor_data_packet(void){
     // Example dummy packet. Real data later
     sensor_data_packet_t ret = {
-        .humidity = 12,
-        .temperature = 32,
-        .light = 122,
-        .moisture = 22,
+        .humidity = 50.2,
+        .temperature = 22.3,
+        .light = 40.1,
+        .moisture = 33.0,
         .header = 0x00
     };
     
@@ -16,3 +18,4 @@ sensor_data_packet_t get_sensor_data_packet(void){
     return ret;
 
 } 
+
