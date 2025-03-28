@@ -4,11 +4,11 @@
 #include "driver/gpio.h"
 #include "driver/i2c.h"
 
-#define I2C_SCL_PIN         GPIO_NUM_22 
-#define I2C_SDA_PIN         GPIO_NUM_21
+#define I2C_SCL_PIN         GPIO_NUM_1
+#define I2C_SDA_PIN         GPIO_NUM_0
 
 #define I2C_SCL_FREQ        100e3 // 100kHz clock out
-#define I2C_PORT_NUM        I2C_NUM_1 
+#define I2C_PORT_NUM        I2C_NUM_0
 
 #define AWAIT_RESPONSE      0x01
 #define IGNORE_RESPONSE     0x00

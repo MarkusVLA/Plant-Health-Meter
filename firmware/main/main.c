@@ -22,7 +22,13 @@ RTC_DATA_ATTR static int wake_count = 0;
 
 // FreeRTOS tasks definitions:
 void test_task(void* pvParameters){
-    printf("Running test task on wakeup %d\n", wake_count);
+    /*printf("Running test task on wakeup %d\n", wake_count);*/
+    esp_err_t ret = init_bme280();
+    if (ret == ESP_OK) {
+        ESP_LOGI(TAG, "BME280 set up succesfully");
+    } else {
+        ESP_LOGE(TAG, "BME280 setup failed");
+    }
     vTaskDelete(NULL);
 }
 
@@ -60,7 +66,7 @@ void app_main(void) {
     
     ESP_LOGI(TAG, "Performing tasks before sleep");
     xTaskCreate(test_task, "test_task", 2048, NULL, 5, NULL);
-    vTaskDelay(pdMS_TO_TICKS(1000000)); // Awake time
+    vTaskDelay(pdMS_TO_TICKS(10000)); // Awake time
 
     ESP_LOGI(TAG, "Cleaning up before sleep");
     stop_webserver(server_handle);

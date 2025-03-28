@@ -1,7 +1,4 @@
 #include "sensor_api.h"
-#include <math.h>
-
-
 
 
 sensor_data_packet_t get_sensor_data_packet(void){
@@ -16,6 +13,5 @@ sensor_data_packet_t get_sensor_data_packet(void){
     
     // copy of generated packet
     return ret;
-
 } 
 

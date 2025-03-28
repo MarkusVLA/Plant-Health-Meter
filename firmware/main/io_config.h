@@ -4,6 +4,6 @@
 
 #include "driver/gpio.h"
 
-#define LED_PIN GPIO_NUM_39 
+#define LED_PIN GPIO_NUM_20
 
 extern gpio_config_t io_config;
