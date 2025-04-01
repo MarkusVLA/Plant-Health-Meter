@@ -7,13 +7,16 @@
 #include "esp_log.h"
 #include "wifi_api.h"
 #include "http_server.h"
+#include "firebase_api.h"
 #include "io_config.h"
 #include "i2c_master.h"
-#include "esp_sleep.h" 
+#include "esp_sleep.h"
 
 // Private config should include the defenitions:
 // WIFI_SSID
 // WIFI_PASSWORD
+// FIREBASE_HOST "xxx-rtdb.europe-west1.firebasedatabase.app"
+// FIREBASE_AUTH "" // TODO: set-up firebase auth
 #include "private_config.h" 
 #define TAG "main"
 
@@ -63,6 +66,9 @@ void app_main(void) {
         ESP_LOGE(TAG, "Failed to init i2c driver");
         return;
     }
+
+    // Send test firebase put request
+    send_firebase_test_payload();
     
     ESP_LOGI(TAG, "Performing tasks before sleep");
     xTaskCreate(test_task, "test_task", 2048, NULL, 5, NULL);
