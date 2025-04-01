@@ -1,8 +1,8 @@
 #include "firebase_api.h"
 #include "private_config.h"
 #include "http_client.h"
-#include "esp_timer.h"
 #include <stdio.h>
+#include "time_sync.h"
 
 void send_to_firebase(unsigned long timestamp, const char *json_str) {
     char url[256];
@@ -14,7 +14,7 @@ void send_to_firebase(unsigned long timestamp, const char *json_str) {
 }
 
 void send_firebase_test_payload(void) {
-    unsigned long ts = esp_timer_get_time() / 1000000; // UNIX timestamp
+    unsigned long ts = get_unix_timestamp();
 
     // Test JSON
     const char *json = "{\"test\": \"ok\"}";

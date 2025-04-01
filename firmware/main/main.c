@@ -11,6 +11,7 @@
 #include "io_config.h"
 #include "i2c_master.h"
 #include "esp_sleep.h"
+#include "time_sync.h"
 
 // Private config should include the defenitions:
 // WIFI_SSID
@@ -66,6 +67,9 @@ void app_main(void) {
         ESP_LOGE(TAG, "Failed to init i2c driver");
         return;
     }
+
+    // Sync time over ntp
+    sync_time();
 
     // Send test firebase put request
     send_firebase_test_payload();
