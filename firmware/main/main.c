@@ -12,6 +12,8 @@
 #include "i2c_master.h"
 #include "esp_sleep.h"
 #include "time_sync.h"
+#include "sensor_api.h"
+#include "packet.h"
 
 // Private config should include the defenitions:
 // WIFI_SSID
@@ -71,8 +73,15 @@ void app_main(void) {
     // Sync time over ntp
     sync_time();
 
-    // Send test firebase put request
-    send_firebase_test_payload();
+    // Get measured data
+    sensor_data_packet_t data_packet = get_sensor_data_packet();
+
+    // Convert data to json
+    char encoded_data[JSON_PACKET_LEN];
+    packet_to_json(encoded_data, JSON_PACKET_LEN, &data_packet);
+
+    // Send data to firebase
+    send_to_firebase(encoded_data);
     
     ESP_LOGI(TAG, "Performing tasks before sleep");
     xTaskCreate(test_task, "test_task", 2048, NULL, 5, NULL);
