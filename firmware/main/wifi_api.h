@@ -16,7 +16,7 @@ esp_err_t init_wifi(void);
 esp_err_t deinit_wifi(void);
 
 // Connect to a wifi network with ssid and password
-esp_err_t connect_wifi(char *wifi_ssid, char *password);
+esp_err_t connect_wifi(const char *wifi_ssid, const char *password);
 
 // Disconnect from wifi network
 esp_err_t disconnect_wifi(void);

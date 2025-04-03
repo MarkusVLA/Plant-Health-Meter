@@ -9,6 +9,8 @@
 #include "esp_bt_defs.h"
 #include "esp_bt_main.h"
 #include "esp_gatt_common_api.h"
+#include "wifi_credentials_store.h"
+#include "wifi_api.h"
 
 #define TAG "BLE_WIFI"
 
@@ -140,21 +142,40 @@ static void gatt_event_handler(esp_gatts_cb_event_t event, esp_gatt_if_t gatts_i
             esp_ble_gatts_start_service(wifi_service_handle);
             break;
 
-        case ESP_GATTS_WRITE_EVT:
+            case ESP_GATTS_WRITE_EVT:
             if (!param->write.is_prep) {
                 char received[param->write.len + 1];
                 memcpy(received, param->write.value, param->write.len);
                 received[param->write.len] = '\0';
-
+        
                 ESP_LOGI(TAG, "Received credentials: %s", received);
-
+        
                 char *delimiter = strchr(received, ':');
                 if (delimiter != NULL) {
                     *delimiter = '\0';
                     const char *ssid = received;
                     const char *password = delimiter + 1;
+        
                     ESP_LOGI(TAG, "Parsed SSID: %s", ssid);
                     ESP_LOGI(TAG, "Parsed Password: %s", password);
+        
+                    // Try connecting to Wi-Fi
+                    if (connect_wifi(ssid, password) == ESP_OK) {
+                        ESP_LOGI(TAG, "Wi-Fi connection successful, saving credentials");
+                        esp_err_t save_ret = save_wifi_credentials(ssid, password);
+                        if (save_ret == ESP_OK) {
+                            ESP_LOGI(TAG, "Credentials saved to NVS successfully");
+                        } else {
+                            ESP_LOGE(TAG, "Failed to save credentials: %s", esp_err_to_name(save_ret));
+                        }
+        
+                        // Restart into normal operation
+                        ESP_LOGI(TAG, "Restarting device...");
+                        esp_restart();
+                    } else {
+                        ESP_LOGW(TAG, "Wi-Fi connection failed, staying in BLE mode");
+                    }
+        
                 } else {
                     ESP_LOGW(TAG, "Invalid format. Expected SSID:PASSWORD");
                 }

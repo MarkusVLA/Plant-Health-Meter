@@ -137,7 +137,7 @@ esp_err_t init_wifi(void) {
     return ret;
 }
 
-esp_err_t connect_wifi(char* wifi_ssid, char* wifi_password) {
+esp_err_t connect_wifi(const char *wifi_ssid, const char *password) {
     wifi_config_t wifi_config = {
         .sta = {
             .threshold.authmode = WIFI_AUTHMODE,
@@ -145,7 +145,7 @@ esp_err_t connect_wifi(char* wifi_ssid, char* wifi_password) {
     };
 
     strncpy((char*)wifi_config.sta.ssid, wifi_ssid, sizeof(wifi_config.sta.ssid));
-    strncpy((char*)wifi_config.sta.password, wifi_password, sizeof(wifi_config.sta.password));
+    strncpy((char*)wifi_config.sta.password, password, sizeof(wifi_config.sta.password));
 
     ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_NONE)); 
     ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM)); 

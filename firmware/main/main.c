@@ -14,6 +14,8 @@
 #include "time_sync.h"
 #include "sensor_api.h"
 #include "packet.h"
+#include "ble_wifi_credentials.h"
+#include "wifi_credentials_store.h"
 
 // Private config should include the defenitions:
 // WIFI_SSID
@@ -41,61 +43,77 @@ void test_task(void* pvParameters){
 void app_main(void) {
     wake_count++;
     ESP_LOGI(TAG, "Wake count: %d", wake_count);
-    
+
     gpio_config(&io_config); 
     init_wifi();
-    
-    // Init wifi connection
-    esp_err_t ret = connect_wifi(WIFI_SSID, WIFI_PASSWORD);
+
+    char ssid[64] = {0};
+    char password[64] = {0};
+
+    // Try loading Wi-Fi credentials from NVS
+    esp_err_t creds_loaded = load_wifi_credentials(ssid, sizeof(ssid), password, sizeof(password));
+    esp_err_t ret = ESP_FAIL;
+
+    if (creds_loaded == ESP_OK) {
+        ESP_LOGI(TAG, "Loaded credentials from NVS: SSID=%s", ssid);
+        ret = connect_wifi(ssid, password);
+    } else {
+        ESP_LOGW(TAG, "No Wi-Fi credentials found in NVS");
+    }
+
+    // If credentials failed to load or Wi-Fi connection failed, go into BLE pairing mode
     if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to connect to WiFi");
+        ESP_LOGW(TAG, "Wi-Fi connection failed, entering BLE mode");
         ble_wifi_start_server();
-    
-        return;
-    }
-    esp_netif_ip_info_t ip_info;
-    esp_netif_get_ip_info(esp_netif_get_handle_from_ifkey("WIFI_STA"), &ip_info);
-    ESP_LOGI(TAG, "Server running on address: " IPSTR, IP2STR(&ip_info.ip));
-    // set the transmit power
-    esp_err_t power_ret = esp_wifi_set_max_tx_power(50); // 8 - 84 
-    if (power_ret != ESP_OK) {
-        ESP_LOGW(TAG, "Failed to set WiFi transmit power: %s", esp_err_to_name(power_ret));
-    }
-    
-    // Init REST API
-    httpd_handle_t server_handle = start_webserver();
-    
-    // Init i2c driver:
-    ret = begin_i2c();
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to init i2c driver");
         return;
     }
 
-    // Sync time over ntp
+    // Successfully connected
+    esp_netif_ip_info_t ip_info;
+    esp_netif_get_ip_info(esp_netif_get_handle_from_ifkey("WIFI_STA"), &ip_info);
+    ESP_LOGI(TAG, "Server running on address: " IPSTR, IP2STR(&ip_info.ip));
+
+    // Set the transmit power (optional)
+    esp_err_t power_ret = esp_wifi_set_max_tx_power(50); // 8 - 84
+    if (power_ret != ESP_OK) {
+        ESP_LOGW(TAG, "Failed to set Wi-Fi transmit power: %s", esp_err_to_name(power_ret));
+    }
+
+    // Init REST API
+    httpd_handle_t server_handle = start_webserver();
+
+    // Init I2C driver
+    ret = begin_i2c();
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to init I2C driver");
+        return;
+    }
+
+    // Sync time over NTP
     sync_time();
 
     // Get measured data
     sensor_data_packet_t data_packet = get_sensor_data_packet();
 
-    // Convert data to json
+    // Convert data to JSON
     char encoded_data[JSON_PACKET_LEN];
     packet_to_json(encoded_data, JSON_PACKET_LEN, &data_packet);
 
-    // Send data to firebase
+    // Send data to Firebase
     send_to_firebase(encoded_data);
-    
+
+    // Perform tasks before sleep
     ESP_LOGI(TAG, "Performing tasks before sleep");
     xTaskCreate(test_task, "test_task", 2048, NULL, 5, NULL);
-    vTaskDelay(pdMS_TO_TICKS(10000)); // Awake time
+    vTaskDelay(pdMS_TO_TICKS(10000)); // Stay awake for 10 seconds
 
+    // Clean up
     ESP_LOGI(TAG, "Cleaning up before sleep");
     stop_webserver(server_handle);
     deinit_wifi();
-    
-    ESP_LOGI(TAG, "Entering deep sleep");
-    esp_sleep_enable_timer_wakeup(1 * 10e6); // seconds in microseconds
-    esp_deep_sleep_start();
-    
-}
 
+    // Deep sleep
+    ESP_LOGI(TAG, "Entering deep sleep");
+    esp_sleep_enable_timer_wakeup(1 * 10e6); // 10 seconds
+    esp_deep_sleep_start();
+}
