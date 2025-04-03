@@ -49,6 +49,8 @@ void app_main(void) {
     esp_err_t ret = connect_wifi(WIFI_SSID, WIFI_PASSWORD);
     if (ret != ESP_OK) {
         ESP_LOGE(TAG, "Failed to connect to WiFi");
+        ble_wifi_start_server();
+    
         return;
     }
     esp_netif_ip_info_t ip_info;

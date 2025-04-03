@@ -1,0 +1,6 @@
+# Name,        Type, SubType, Offset,   Size
+nvs,           data, nvs,     0x9000,   0x7000
+otadata,       data, ota,     0x10000,  0x2000
+phy_init,      data, phy,     0x12000,  0x1000
+# Align to next 64KB block: 0x20000
+factory,       app,  factory, 0x20000,  0x380000
