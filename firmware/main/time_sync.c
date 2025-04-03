@@ -7,9 +7,9 @@
 void sync_time(void) {
     ESP_LOGI(TAG, "Initializing SNTP");
 
-    sntp_setoperatingmode(SNTP_OPMODE_POLL);
-    sntp_setservername(0, "pool.ntp.org");
-    sntp_init();
+    esp_sntp_setoperatingmode(SNTP_OPMODE_POLL);
+    esp_sntp_setservername(0, "pool.ntp.org");
+    esp_sntp_init();
 
     ESP_LOGI(TAG, "Waiting for system time to be set...");
     time_t now = 0;
