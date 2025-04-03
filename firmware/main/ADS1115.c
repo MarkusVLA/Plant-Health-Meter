@@ -52,12 +52,12 @@ esp_err_t ads1115_init(void) {
     // Default configuration:
     // - Single-shot mode
     // - AIN0/GND input
-    // - +/-2.048V range (default)
+    // - +/-4.096V range (default)
     // - 128 SPS (default)
     // - Disable comparator
     uint16_t config = ADS111X_CFG_OS_START |      // Start a single conversion
                       ADS111X_CFG_MUX_SINGLE_0 |  // Single-ended AIN0
-                      ADS111X_CFG_PGA_2_048V |    // +/-2.048V range
+                      ADS111X_CFG_PGA_4_096V |    // +/-4.096V range
                       ADS111X_CFG_MODE_SINGLE |   // Single-shot mode
                       ADS111X_CFG_DR_128SPS |     // 128 samples per second
                       ADS111X_CFG_CMODE_TRAD |    // Traditional comparator
@@ -68,7 +68,7 @@ esp_err_t ads1115_init(void) {
     // Save the current configuration
     ads1115_state.config = config;
     ads1115_state.current_mux = (ADS111X_CFG_MUX_SINGLE_0 & ADS111X_CFG_MUX_MASK) >> ADS111X_CFG_MUX_SHIFT;
-    ads1115_state.current_pga = ADS111X_CFG_PGA_2_048V;
+    ads1115_state.current_pga = ADS111X_CFG_PGA_4_096V;
     ads1115_state.is_continuous_mode = false;
     
     esp_err_t ret = i2c_write_reg(ADS111X_REG_CONFIG, config);
@@ -236,7 +236,6 @@ esp_err_t ads1115_start_conversion(void) {
     return ads1115_set_config(config);
 }
 
-// Check if conversion is ready
 esp_err_t ads1115_is_conversion_ready(bool *ready) {
     uint16_t config;
     
@@ -248,7 +247,6 @@ esp_err_t ads1115_is_conversion_ready(bool *ready) {
     return ESP_OK;
 }
 
-// Wait for conversion to complete
 esp_err_t ads1115_wait_conversion(void) {
     int timeout_ms = ADS1115_CONVERSION_TIMEOUT_MS;
     bool ready = false;
@@ -282,7 +280,7 @@ esp_err_t ads1115_read_conversion(int16_t *result) {
     return ESP_OK;
 }
 
-// Get the conversion factor based on the current PGA setting
+// conversion factor based on the current PGA setting
 float ads1115_get_conversion_factor(void) {
     switch (ads1115_state.current_pga) {
         case ADS111X_CFG_PGA_6_144V: return ADS1115_MV_6_144V;
@@ -291,7 +289,7 @@ float ads1115_get_conversion_factor(void) {
         case ADS111X_CFG_PGA_1_024V: return ADS1115_MV_1_024V;
         case ADS111X_CFG_PGA_0_512V: return ADS1115_MV_0_512V;
         case ADS111X_CFG_PGA_0_256V: return ADS1115_MV_0_256V;
-        default: return ADS1115_MV_2_048V;  // Default to 2.048V range
+        default: return ADS1115_MV_2_048V;  
     }
 }
 
@@ -372,7 +370,7 @@ float read_ain3(void) {
     return voltage;
 }
 
-// Dump the configuration register (useful for debugging)
+// Dump the configuration register
 esp_err_t ads1115_dump_config(void) {
     uint16_t config;
     esp_err_t ret = ads1115_get_config(&config);

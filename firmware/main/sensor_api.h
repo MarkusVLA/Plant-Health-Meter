@@ -2,10 +2,14 @@
 
 #pragma once
 #include "packet.h"
-#include <esp_err.h>
+#include "esp_err.h"
+#include "driver/gpio.h"
+#include "io_config.h"
+
+// Time for moisture sensor to settle.
+#define MOISTURE_SENSOR_SETTLE_TIME_MS 50 
 
 // get sensor reading from moisture sensor    
-// Moisture sensor reading has ~80ms settling time after power up
 float get_moisture_sensor_value(void);
 
 // Get the temperature sensor reading
