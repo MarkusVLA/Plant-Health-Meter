@@ -39,7 +39,7 @@ static esp_err_t post_handler(httpd_req_t *req){
     // Print post request data
     printf("Post request data:\n%s\n", content);
     // Write post reuqest data to i2c bus
-    i2c_write_byte_array((unsigned char*) content, strlen(content));
+    i2c_write_byte_array(0x00, (unsigned char*) content, strlen(content));
     const char resp[] = "URI POST Response";
     httpd_resp_send(req, resp, HTTPD_RESP_USE_STRLEN);
     return ESP_OK;

@@ -4,12 +4,16 @@
 #include <esp_event.h>
 #include <nvs_flash.h>
 #include <esp_http_server.h>
+#include <stdint.h>
 #include "esp_log.h"
 #include "wifi_api.h"
 #include "http_server.h"
 #include "io_config.h"
 #include "i2c_master.h"
 #include "esp_sleep.h" 
+#include "sensor_api.h"
+#include "BME280.h"
+#include "ADS1115.h"
 
 // Private config should include the defenitions:
 // WIFI_SSID
@@ -20,23 +24,26 @@
 // Wake up count in RTC memory
 RTC_DATA_ATTR static int wake_count = 0;
 
-// FreeRTOS tasks definitions:
-void test_task(void* pvParameters){
-    /*printf("Running test task on wakeup %d\n", wake_count);*/
-    esp_err_t ret = init_bme280();
-    if (ret == ESP_OK) {
-        ESP_LOGI(TAG, "BME280 set up succesfully");
-    } else {
-        ESP_LOGE(TAG, "BME280 setup failed");
-    }
-    vTaskDelete(NULL);
-}
+/*// FreeRTOS tasks definitions:*/
+/*void test_task(void* pvParameters){*/
+/*    printf("Running test task on wakeup %d\n", wake_count);*/
+/*    esp_err_t ret = init_bme280();*/
+/*    if (ret == ESP_OK) {*/
+/*        ESP_LOGI(TAG, "BME280 set up succesfully");*/
+/*    } else {*/
+/*        ESP_LOGE(TAG, "BME280 setup failed");*/
+/*    }*/
+/*    vTaskDelete(NULL);*/
+/*}*/
 
 void app_main(void) {
     wake_count++;
     ESP_LOGI(TAG, "Wake count: %d", wake_count);
     
     gpio_config(&io_config); 
+
+    // Enable boost converter
+    gpio_set_level(BOOST_EN, 1);
     init_wifi();
     
     // Init wifi connection
@@ -49,7 +56,7 @@ void app_main(void) {
     esp_netif_get_ip_info(esp_netif_get_handle_from_ifkey("WIFI_STA"), &ip_info);
     ESP_LOGI(TAG, "Server running on address: " IPSTR, IP2STR(&ip_info.ip));
     // set the transmit power
-    esp_err_t power_ret = esp_wifi_set_max_tx_power(50); // 8 - 84 
+    esp_err_t power_ret = esp_wifi_set_max_tx_power(55); // 8 - 84 
     if (power_ret != ESP_OK) {
         ESP_LOGW(TAG, "Failed to set WiFi transmit power: %s", esp_err_to_name(power_ret));
     }
@@ -63,15 +70,35 @@ void app_main(void) {
         ESP_LOGE(TAG, "Failed to init i2c driver");
         return;
     }
+
+    // Initialize sensors
+    if (ret != ESP_OK){
+        ESP_LOGE(TAG, "Failed to init sensors");
+        return;
+    }
+        
+    /*init_bme280();*/
+    /*ads1115_init();*/
+    init_sensors();
+    ads1115_dump_config();
+    uint16_t temp_sensor_val = 0;
+    float adc_val = 0;
+
+    while (true) {
+        bme280_read_temperature(&temp_sensor_val);
+        adc_val = read_ain1();
+        printf("temperature: %d\n", temp_sensor_val);
+        printf("ADC: %.2f\n\n", adc_val);
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+
     
     ESP_LOGI(TAG, "Performing tasks before sleep");
-    xTaskCreate(test_task, "test_task", 2048, NULL, 5, NULL);
-    vTaskDelay(pdMS_TO_TICKS(10000)); // Awake time
-
+    /*xTaskCreate(test_task, "test_task", 2048, NULL, 5, NULL);*/
+    vTaskDelay(pdMS_TO_TICKS(1000000)); // Awake time
     ESP_LOGI(TAG, "Cleaning up before sleep");
     stop_webserver(server_handle);
     deinit_wifi();
-    
     ESP_LOGI(TAG, "Entering deep sleep");
     esp_sleep_enable_timer_wakeup(1 * 10e6); // seconds in microseconds
     esp_deep_sleep_start();

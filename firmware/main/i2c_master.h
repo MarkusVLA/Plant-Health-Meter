@@ -16,15 +16,10 @@
 // Load default i2c config on the esp32
 esp_err_t begin_i2c(void);
 
-// Test function to verify that i2c is working
-esp_err_t test_i2c();
+esp_err_t i2c_read_register(uint8_t i2c_addr, uint8_t reg_addr, 
+                             uint8_t *data, size_t data_size);
 
-// Write string to i2c bus for testing purpose.
-esp_err_t i2c_write_byte_array(uint8_t* data, size_t data_size);
+esp_err_t i2c_write_register(uint8_t i2c_addr, uint8_t reg_addr, 
+                             uint8_t *data, size_t data_size);
 
-// Read and check chip id
-esp_err_t bme280_hand_shake(void);
-
-// Initialize and check the bme280
-esp_err_t init_bme280(void);
-
+esp_err_t i2c_write_byte_array(uint8_t i2c_addr, uint8_t* data, size_t data_size);
