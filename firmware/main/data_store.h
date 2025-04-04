@@ -30,3 +30,20 @@ esp_err_t load_wifi_credentials(char* ssid, size_t ssid_len, char* password, siz
  * @return esp_err_t ESP_OK on success, or an error code
  */
 esp_err_t reset_wifi_credentials(void);
+
+/**
+* @brief Save device ID string to NVS
+*
+* @param device_id Pointer to device ID string
+* @return esp_err_t ESP_OK on success, or error code
+*/
+esp_err_t save_device_id(const char* device_id);
+
+/**
+* @brief Load device ID string from NVS
+*
+* @param device_id Buffer to store device ID
+* @param id_len Length of the buffer
+* @return esp_err_t ESP_OK on success, or error code
+*/
+esp_err_t load_device_id(char* device_id, size_t id_len);

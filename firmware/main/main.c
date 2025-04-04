@@ -16,7 +16,7 @@
 #include "sensor_api.h"
 #include "packet.h"
 #include "ble_wifi_credentials.h"
-#include "wifi_credentials_store.h"
+#include "data_store.h"
 #include "BME280.h"
 #include "ADS1115.h"
 

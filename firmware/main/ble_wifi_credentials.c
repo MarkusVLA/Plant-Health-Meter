@@ -9,7 +9,7 @@
 #include "esp_bt_defs.h"
 #include "esp_bt_main.h"
 #include "esp_gatt_common_api.h"
-#include "wifi_credentials_store.h"
+#include "data_store.h"
 #include "wifi_api.h"
 #include "driver/gpio.h"
 
@@ -171,30 +171,41 @@ static void gatt_event_handler(esp_gatts_cb_event_t event, esp_gatt_if_t gatts_i
         
                 ESP_LOGI(TAG, "Received credentials: %s", received);
         
-                char *delimiter = strchr(received, ':');
-                if (delimiter != NULL) {
-                    *delimiter = '\0';
-                    const char *ssid = received;
-                    const char *password = delimiter + 1;
+                // Split by first ':'
+                char *id_token = strtok(received, ":");
+                char *ssid_token = strtok(NULL, ":");
+                char *password_token = strtok(NULL, "");
         
+                if (id_token && ssid_token && password_token) {
+                    const char *device_id = id_token;
+                    const char *ssid = ssid_token;
+                    const char *password = password_token;
+                
+                    ESP_LOGI(TAG, "Parsed Device ID: %s", device_id);
                     ESP_LOGI(TAG, "Parsed SSID: %s", ssid);
                     ESP_LOGI(TAG, "Parsed Password: %s", password);
-        
+                
                     esp_err_t save_ret = save_wifi_credentials(ssid, password);
-                    if (save_ret == ESP_OK) {
-                        ESP_LOGI(TAG, "Credentials saved to NVS successfully");
-        
+                    esp_err_t save_id_ret = save_device_id(device_id);
+                
+                    if (save_ret == ESP_OK && save_id_ret == ESP_OK) {
+                        ESP_LOGI(TAG, "Credentials and Device ID saved to NVS successfully");
+                
                         ESP_LOGI(TAG, "Restarting device to attempt Wi-Fi connection...");
                         esp_restart();
                     } else {
-                        ESP_LOGE(TAG, "Failed to save credentials: %s", esp_err_to_name(save_ret));
+                        ESP_LOGE(TAG, "Failed to save:");
+                        if (save_ret != ESP_OK)
+                            ESP_LOGE(TAG, " - Wi-Fi credentials: %s", esp_err_to_name(save_ret));
+                        if (save_id_ret != ESP_OK)
+                            ESP_LOGE(TAG, " - Device ID: %s", esp_err_to_name(save_id_ret));
                     }
                 } else {
-                    ESP_LOGW(TAG, "Invalid format. Expected SSID:PASSWORD");
+                    ESP_LOGW(TAG, "Invalid format. Expected ID:SSID:PASSWORD");
                 }
             }
             break;
-
+        
         default:
             break;
     }
