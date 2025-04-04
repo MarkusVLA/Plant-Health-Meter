@@ -91,14 +91,3 @@
 #define ADS111X_LO_THRESH_RDY_MSB 0x0000 // MSB=0 for conversion-ready mode
 #define ADS111X_CONV_MASK         0xFFFF // Full 16-bit result mask
 
-// Helper macros
-#define ADS111X_CFG_SET_OS(reg, value)     (((reg) & ~ADS111X_CFG_OS_MASK) | ((value) << ADS111X_CFG_OS_SHIFT))
-#define ADS111X_CFG_SET_MUX(reg, value)    (((reg) & ~ADS111X_CFG_MUX_MASK) | ((value) << ADS111X_CFG_MUX_SHIFT))
-#define ADS111X_CFG_SET_PGA(reg, value)    (((reg) & ~ADS111X_CFG_PGA_MASK) | ((value) << ADS111X_CFG_PGA_SHIFT))
-#define ADS111X_CFG_SET_MODE(reg, value)   (((reg) & ~ADS111X_CFG_MODE_MASK) | ((value) << ADS111X_CFG_MODE_SHIFT))
-#define ADS111X_CFG_SET_DR(reg, value)     (((reg) & ~ADS111X_CFG_DR_MASK) | ((value) << ADS111X_CFG_DR_SHIFT))
-#define ADS111X_CFG_SET_CMODE(reg, value)  (((reg) & ~ADS111X_CFG_CMODE_MASK) | ((value) << ADS111X_CFG_CMODE_SHIFT))
-#define ADS111X_CFG_SET_CPOL(reg, value)   (((reg) & ~ADS111X_CFG_CPOL_MASK) | ((value) << ADS111X_CFG_CPOL_SHIFT))
-#define ADS111X_CFG_SET_CLAT(reg, value)   (((reg) & ~ADS111X_CFG_CLAT_MASK) | ((value) << ADS111X_CFG_CLAT_SHIFT))
-#define ADS111X_CFG_SET_CQUE(reg, value)   (((reg) & ~ADS111X_CFG_CQUE_MASK) | ((value) << ADS111X_CFG_CQUE_SHIFT))
-

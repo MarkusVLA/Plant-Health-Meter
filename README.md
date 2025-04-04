@@ -6,7 +6,7 @@ This repository contains Aalto AAN-C2009 project device hardware configuration a
 - Ambient light monitoring
 - Temperature and humidity measurement
 - Battery-powered operation with charging circuit
-- LED indicators for plant status
+- Web interface for monitoring plant health 
 
 ## PCB
 PCB design done in KiCad.
@@ -14,16 +14,16 @@ PCB design done in KiCad.
 ![alt tex](PCB/img/layout.png)
 Schematic: [PDF](PCB/img/schematic.pdf)
 
-## Hardware Components
+## Key Components
 - ESP32-C3 microcontroller
 - BME280 temperature/humidity sensor
-- Capacitive soil moisture sensor
-- OPA340 light sensor amplifier
+- Custom capacitive soil moisture sensor
+- Photodiode and OPA340 based transimpedance amplifier
 - ADS1115 16-bit ADC for accurate measurements
 
 ## Embedded software
-Embedded software is written in C using the ESP-IDF Development Framework.
-[esp programming guide](https://docs.espressif.com/projects/esp-idf/en/v5.2.5/esp32c3/get-started/index.html)
+Embedded software is written in C using the ESP-IDF (Espressif IoT Development Framework)
+[ESP programming guide](https://docs.espressif.com/projects/esp-idf/en/v5.2.5/esp32c3/get-started/index.html)
 
 ## Pin Assignments
 See the schematic for detailed I/O connections and sensor bus configuration.

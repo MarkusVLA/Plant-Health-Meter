@@ -4,6 +4,7 @@
 #include <esp_event.h>
 #include <nvs_flash.h>
 #include <esp_http_server.h>
+#include <stdint.h>
 #include "esp_log.h"
 #include "wifi_api.h"
 #include "http_server.h"
@@ -16,6 +17,8 @@
 #include "packet.h"
 #include "ble_wifi_credentials.h"
 #include "wifi_credentials_store.h"
+#include "BME280.h"
+#include "ADS1115.h"
 
 // Private config should include the defenitions:
 // WIFI_SSID
@@ -28,23 +31,14 @@
 // Wake up count in RTC memory
 RTC_DATA_ATTR static int wake_count = 0;
 
-// FreeRTOS tasks definitions:
-void test_task(void* pvParameters){
-    /*printf("Running test task on wakeup %d\n", wake_count);*/
-    esp_err_t ret = init_bme280();
-    if (ret == ESP_OK) {
-        ESP_LOGI(TAG, "BME280 set up succesfully");
-    } else {
-        ESP_LOGE(TAG, "BME280 setup failed");
-    }
-    vTaskDelete(NULL);
-}
-
 void app_main(void) {
     wake_count++;
     ESP_LOGI(TAG, "Wake count: %d", wake_count);
 
     gpio_config(&io_config); 
+
+    // Enable boost converter
+    gpio_set_level(BOOST_EN, 1);
     init_wifi();
 
     char ssid[64] = {0};
@@ -73,8 +67,8 @@ void app_main(void) {
     esp_netif_get_ip_info(esp_netif_get_handle_from_ifkey("WIFI_STA"), &ip_info);
     ESP_LOGI(TAG, "Server running on address: " IPSTR, IP2STR(&ip_info.ip));
 
-    // Set the transmit power (optional)
-    esp_err_t power_ret = esp_wifi_set_max_tx_power(50); // 8 - 84
+    // Set the transmit power
+    esp_err_t power_ret = esp_wifi_set_max_tx_power(55); // 8 - 84
     if (power_ret != ESP_OK) {
         ESP_LOGW(TAG, "Failed to set Wi-Fi transmit power: %s", esp_err_to_name(power_ret));
     }
@@ -92,7 +86,7 @@ void app_main(void) {
     // Sync time over NTP
     sync_time();
 
-    // Get measured data
+    // Fetch sensor packet and send to Firebase
     sensor_data_packet_t data_packet = get_sensor_data_packet();
 
     // Convert data to JSON
@@ -102,18 +96,26 @@ void app_main(void) {
     // Send data to Firebase
     send_to_firebase(encoded_data);
 
-    // Perform tasks before sleep
-    ESP_LOGI(TAG, "Performing tasks before sleep");
-    xTaskCreate(test_task, "test_task", 2048, NULL, 5, NULL);
-    vTaskDelay(pdMS_TO_TICKS(10000)); // Stay awake for 10 seconds
+    // Init and test BME280 / ADS1115
+    init_sensors();
+    ads1115_dump_config();
+    uint16_t temp_sensor_val = 0;
+    float adc_val = 0;
 
-    // Clean up
+    for (int i = 0; i < 10; i++) {
+        bme280_read_temperature(&temp_sensor_val);
+        adc_val = read_ain1();
+        ESP_LOGI(TAG, "temperature: %d", temp_sensor_val);
+        ESP_LOGI(TAG, "ADC: %.2f", adc_val);
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+
+    // Clean up and sleep
     ESP_LOGI(TAG, "Cleaning up before sleep");
     stop_webserver(server_handle);
     deinit_wifi();
 
-    // Deep sleep
     ESP_LOGI(TAG, "Entering deep sleep");
-    esp_sleep_enable_timer_wakeup(1 * 10e6); // 10 seconds
+    esp_sleep_enable_timer_wakeup(10 * 1000000); // 10 seconds
     esp_deep_sleep_start();
 }
