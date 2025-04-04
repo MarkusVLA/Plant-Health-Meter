@@ -11,12 +11,15 @@
 #include "esp_gatt_common_api.h"
 #include "wifi_credentials_store.h"
 #include "wifi_api.h"
+#include "driver/gpio.h"
 
 #define TAG "BLE_WIFI"
 
 #define WIFI_SERVICE_UUID     0x00F1
 #define WIFI_CHAR_UUID        0xF1F1
 #define WIFI_CHAR_VAL_LEN_MAX 128
+
+#define BLINK_GPIO 20
 
 static uint16_t wifi_service_handle = 0;
 static uint16_t wifi_char_handle = 0;
@@ -78,6 +81,24 @@ static esp_ble_adv_params_t adv_params = {
     .channel_map        = ADV_CHNL_ALL,
     .adv_filter_policy  = ADV_FILTER_ALLOW_SCAN_ANY_CON_ANY,
 };
+
+void blink_task(void *pvParameter) {
+    gpio_config_t io_conf = {
+        .pin_bit_mask = 1ULL << BLINK_GPIO,
+        .mode = GPIO_MODE_OUTPUT,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_DISABLE,
+    };
+    gpio_config(&io_conf);
+
+    while (1) {
+        gpio_set_level(BLINK_GPIO, 1);
+        vTaskDelay(pdMS_TO_TICKS(500));
+        gpio_set_level(BLINK_GPIO, 0);
+        vTaskDelay(pdMS_TO_TICKS(500));
+    }
+}
 
 static void gap_event_handler(esp_gap_ble_cb_event_t event, esp_ble_gap_cb_param_t *param) {
     switch (event) {
@@ -200,6 +221,8 @@ void ble_wifi_start_server(void) {
     ESP_ERROR_CHECK(esp_ble_gap_register_callback(gap_event_handler));
     ESP_ERROR_CHECK(esp_ble_gatts_register_callback(gatt_event_handler));
     ESP_ERROR_CHECK(esp_ble_gatts_app_register(0));
+
+    xTaskCreate(blink_task, "blink_task", 1024, NULL, 5, NULL);
 
     ESP_LOGI(TAG, "Waiting for BLE credentials (SSID:PASSWORD)...");
 }
