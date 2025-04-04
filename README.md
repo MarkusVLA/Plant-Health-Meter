@@ -31,7 +31,12 @@ See the schematic for detailed I/O connections and sensor bus configuration.
 ## Setup Instructions
 1. Follow the ESP-IDF installation guide
 2. Clone this repository
-3. Build and flash using `idf.py build flash monitor`
+3. Set ESP32-C3 target in the idf `idf.py set-target esp32c3`
+4. Configure the partitions and BLE version `idf.py menuconfig`:
+    1. Go to Partition Table → Partition Table and select Custom partition table CSV. Then set the path to `partitions.csv`.
+    2. Go to Component Config → Bluetooth → Bluedroid BLE version and choose v4.0.
+    3. Save and exit the configuration menu.
+5. Build and flash using `idf.py build flash monitor`
 
 ## Power Requirements
 3.7V Li-ion battery or USB power
