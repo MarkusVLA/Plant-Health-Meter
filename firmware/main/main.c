@@ -21,8 +21,6 @@
 #include "ADS1115.h"
 
 // Private config should include the defenitions:
-// WIFI_SSID
-// WIFI_PASSWORD
 // FIREBASE_HOST "xxx-rtdb.europe-west1.firebasedatabase.app"
 // FIREBASE_AUTH "" // TODO: set-up firebase auth
 #include "private_config.h" 
