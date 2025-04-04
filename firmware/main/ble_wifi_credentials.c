@@ -159,23 +159,15 @@ static void gatt_event_handler(esp_gatts_cb_event_t event, esp_gatt_if_t gatts_i
                     ESP_LOGI(TAG, "Parsed SSID: %s", ssid);
                     ESP_LOGI(TAG, "Parsed Password: %s", password);
         
-                    // Try connecting to Wi-Fi
-                    if (connect_wifi(ssid, password) == ESP_OK) {
-                        ESP_LOGI(TAG, "Wi-Fi connection successful, saving credentials");
-                        esp_err_t save_ret = save_wifi_credentials(ssid, password);
-                        if (save_ret == ESP_OK) {
-                            ESP_LOGI(TAG, "Credentials saved to NVS successfully");
-                        } else {
-                            ESP_LOGE(TAG, "Failed to save credentials: %s", esp_err_to_name(save_ret));
-                        }
+                    esp_err_t save_ret = save_wifi_credentials(ssid, password);
+                    if (save_ret == ESP_OK) {
+                        ESP_LOGI(TAG, "Credentials saved to NVS successfully");
         
-                        // Restart into normal operation
-                        ESP_LOGI(TAG, "Restarting device...");
+                        ESP_LOGI(TAG, "Restarting device to attempt Wi-Fi connection...");
                         esp_restart();
                     } else {
-                        ESP_LOGW(TAG, "Wi-Fi connection failed, staying in BLE mode");
+                        ESP_LOGE(TAG, "Failed to save credentials: %s", esp_err_to_name(save_ret));
                     }
-        
                 } else {
                     ESP_LOGW(TAG, "Invalid format. Expected SSID:PASSWORD");
                 }
