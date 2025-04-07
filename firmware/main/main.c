@@ -4,7 +4,6 @@
 #include <esp_event.h>
 #include <nvs_flash.h>
 #include <esp_http_server.h>
-#include <stdint.h>
 #include "esp_log.h"
 #include "wifi_api.h"
 #include "http_server.h"
@@ -80,6 +79,9 @@ void app_main(void) {
         ESP_LOGE(TAG, "Failed to init I2C driver");
         return;
     }
+    
+    // Needs to be called before sensors can be used.
+    init_sensors();
 
     // Sync time over NTP
     sync_time();
@@ -93,20 +95,6 @@ void app_main(void) {
 
     // Send data to Firebase
     send_to_firebase(encoded_data);
-
-    // Init and test BME280 / ADS1115
-    init_sensors();
-    ads1115_dump_config();
-    uint16_t temp_sensor_val = 0;
-    float adc_val = 0;
-
-    for (int i = 0; i < 10; i++) {
-        bme280_read_temperature(&temp_sensor_val);
-        adc_val = read_ain1();
-        ESP_LOGI(TAG, "temperature: %d", temp_sensor_val);
-        ESP_LOGI(TAG, "ADC: %.2f", adc_val);
-        vTaskDelay(pdMS_TO_TICKS(1000));
-    }
 
     // Clean up and sleep
     ESP_LOGI(TAG, "Cleaning up before sleep");
